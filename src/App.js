@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import rockGlass from './images/rockGlass.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './Components/Footer';
 
 function App() {
   return (
     <div>
-      <h1>Iniciando Projeto</h1>
+      <Footer />
     </div>
   );
 }
