@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './Components/Footer';
+import Rotas from './Rotas';
+import LoginProvider from './context/LoginProvider';
 
 function App() {
   return (
-    <div>
-      <Footer />
-    </div>
+    <LoginProvider>
+      <Rotas />
+    </LoginProvider>
   );
 }
 
