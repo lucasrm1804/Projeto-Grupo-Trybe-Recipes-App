@@ -3,7 +3,7 @@ export const drinksIniciais = async () => {
     'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=',
   )
     .then((data) => data.json())
-    .then((data) => data.meals);
+    .then((data) => data.drinks);
   return response;
 };
 
