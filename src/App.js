@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Rotas from './Rotas';
+import LoginProvider from './context/LoginProvider';
 
 function App() {
   return (
-    <div>
-      <h1>Iniciando Projeto</h1>
-    </div>
+    <LoginProvider>
+      <Rotas />
+    </LoginProvider>
   );
 }
 
