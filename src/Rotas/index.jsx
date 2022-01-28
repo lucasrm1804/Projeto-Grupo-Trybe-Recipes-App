@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Login from '../pages/Login';
 
 export default function Rotas() {
   return (
 
     <div>
       <Switch>
-        <Route path="/" component="" />
+        <Route path="/" component={ Login } />
         <Route path="/foods" component="" />
         <Route path="/drinks" component="" />
         <Route path="/foods/:id" component="" />
