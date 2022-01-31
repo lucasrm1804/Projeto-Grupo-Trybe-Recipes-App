@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProfileButton from './ProfileButton';
+import BotaoPerfil from './BotaoPerfil';
 import SearchButton from './SearchButton';
 
 export default function Header(props) {
@@ -8,7 +8,7 @@ export default function Header(props) {
 
   return (
     <div>
-      <ProfileButton />
+      <BotaoPerfil />
       <h1 data-testid="page-title">{ label }</h1>
       {displaySearchButton && <SearchButton />}
     </div>
