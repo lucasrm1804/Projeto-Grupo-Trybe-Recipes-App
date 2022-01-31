@@ -7,7 +7,6 @@ import {
   saveMealsToken,
   savecocktailsToken,
 } from '../services/SaveLoginInfo';
-import Footer from '../components/Footer';
 
 function Login(props) {
   const {
@@ -67,7 +66,7 @@ function Login(props) {
           handleClick={ handleClick }
         />
       </div>
-      <Footer />
+      <COMP.Footer />
     </div>
   );
 }
