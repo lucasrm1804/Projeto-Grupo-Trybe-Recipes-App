@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import '../App.css';
+import drinkIcon from '../images/drinkIcon.svg';
+import exploreIcon from '../images/exploreIcon.svg';
+import mealIcon from '../images/mealIcon.svg';
 
 export default function Footer() {
   const [redirect, setRedirect] = useState(false);
@@ -15,15 +18,16 @@ export default function Footer() {
   return (
 
     <div
-      className="footer"
+      className="  w-full flex max-w-sm flex justify-around max-w-sm items-end"
       data-testid="footer"
     >
+
       <button
         type="button"
         data-testid="drinks-bottom-btn"
         onClick={ () => onClick(routes.drink) }
       >
-        <img src="src/images/drinkIcon.svg" alt="drinkIcon" />
+        <img src={ drinkIcon } alt="drinkIcon" />
       </button>
 
       <button
@@ -31,7 +35,7 @@ export default function Footer() {
         data-testid="explore-bottom-btn"
         onClick={ () => onClick(routes.explore) }
       >
-        <img src="src/images/exploreIcon.svg" alt="exploreIcon" />
+        <img src={ exploreIcon } alt="exploreIcon" />
 
       </button>
 
@@ -40,7 +44,7 @@ export default function Footer() {
         data-testid="food-bottom-btn"
         onClick={ () => onClick(routes.food) }
       >
-        <img src="src/images/meals.svg" alt="mealsIcon" />
+        <img src={ mealIcon } alt="mealIcon" />
       </button>
       { redirect && <Redirect to={ OnRoute } /> }
     </div>);
