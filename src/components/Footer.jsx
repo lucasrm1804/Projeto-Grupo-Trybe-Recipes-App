@@ -8,7 +8,7 @@ import mealIcon from '../images/mealIcon.svg';
 export default function Footer() {
   const [redirect, setRedirect] = useState(false);
   const [OnRoute, setOnRoute] = useState('');
-  const [routes] = useState({ drink: '/drink', food: '/food', explore: '/explore' });
+  const [routes] = useState({ drink: '/drinks', food: '/foods', explore: '/explore' });
 
   const onClick = (value) => {
     setRedirect(true);
@@ -18,14 +18,17 @@ export default function Footer() {
   return (
 
     <div
-      className="  w-full flex max-w-sm flex justify-around max-w-sm items-end"
       data-testid="footer"
+      className="
+      fixed bottom-0 w-full flex max-w-sm flex justify-around max-w-sm items-end"
     >
 
       <button
         type="button"
         data-testid="drinks-bottom-btn"
         onClick={ () => onClick(routes.drink) }
+        src={ drinkIcon }
+        alt="drinkIcon"
       >
         <img src={ drinkIcon } alt="drinkIcon" />
       </button>
@@ -34,6 +37,8 @@ export default function Footer() {
         type="button"
         data-testid="explore-bottom-btn"
         onClick={ () => onClick(routes.explore) }
+        src={ exploreIcon }
+        alt="exploreIcon"
       >
         <img src={ exploreIcon } alt="exploreIcon" />
 
@@ -43,6 +48,8 @@ export default function Footer() {
         type="button"
         data-testid="food-bottom-btn"
         onClick={ () => onClick(routes.food) }
+        src={ mealIcon }
+        alt="mealIcon"
       >
         <img src={ mealIcon } alt="mealIcon" />
       </button>
