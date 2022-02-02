@@ -27,7 +27,7 @@ function Profile(props) {
         />
       </div>
       <div>
-        <span data-testid="profile-email">{email.email}</span>
+        <span data-testid="profile-email">{email && email.email}</span>
       </div>
       <div className="flex flex-col items-center justify-between">
         <COMP.ProfileButton
@@ -48,8 +48,10 @@ function Profile(props) {
           handleClick={ handleClick }
         />
       </div>
-      <div>
-        <COMP.Footer />
+      <div className="flex justify-center">
+        <div className=" fixed bottom-0 w-full flex max-w-sm items-end ">
+          <COMP.Footer />
+        </div>
       </div>
     </div>
   );

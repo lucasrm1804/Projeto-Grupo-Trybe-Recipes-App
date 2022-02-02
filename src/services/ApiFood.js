@@ -1,15 +1,53 @@
-export const foodsIniciais = async () => {
-  const response = await fetch(
-    '    https://www.themealdb.com/api/json/v1/1/search.php?s=',
-  )
-    .then((data) => data.json())
-    .then((data) => data.meals);
-  return response;
-};
+const ENDPOINT_INGREDIENT = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=';
+const ENDPOINT_NAME = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+const ENDPOINT_FIRST_LETTER = 'https://www.themealdb.com/api/json/v1/1/search.php?f=';
+const SORRY = 'Sorry, we haven\'t found any recipes for these filters.';
 
-export const fetchApi2 = async () => {
-  const response = await fetch('')
-    .then((data) => data.json())
-    .then((data) => data.meals);
-  return response;
-};
+export function requestIngredient(inputValue) {
+  return `${ENDPOINT_INGREDIENT}${inputValue}`;
+}
+
+export function requestName(inputValue) {
+  return `${ENDPOINT_NAME}${inputValue}`;
+}
+
+export function requestFirstLetter(inputValue) {
+  return `${ENDPOINT_FIRST_LETTER}${inputValue}`;
+}
+
+export async function requestMeals(searchRadioValue, searchText, setMeals, history) {
+  if (searchRadioValue === 'Ingrediente') {
+    const result = await fetch(requestIngredient(searchText))
+      .then((res) => res.json());
+    const { meals } = result;
+    if (meals === null) return global.alert(SORRY);
+    if (meals.length === 1) {
+      history.push(`/foods/${meals[0].idMeal}`);
+      return;
+    }
+    setMeals(meals);
+  }
+
+  if (searchRadioValue === 'Nome') {
+    const result = await fetch(requestName(searchText)).then((res) => res.json());
+    const { meals } = result;
+    if (meals === null) return global.alert(SORRY);
+    if (meals.length === 1) {
+      history.push(`/foods/${meals[0].idMeal}`);
+      return;
+    }
+    setMeals(meals);
+  }
+
+  if (searchRadioValue === 'Primeira Letra') {
+    const result = await fetch(requestFirstLetter(searchText))
+      .then((res) => res.json());
+    const { meals } = result;
+    if (meals === null) return global.alert(SORRY);
+    if (meals.length === 1) {
+      history.push(`/foods/${meals[0].idMeal}`);
+      return;
+    }
+    setMeals(meals);
+  }
+}

@@ -8,6 +8,7 @@ export default function BotaoPerfil() {
     <button
       type="button"
       onClick={ () => history.push('/profile') }
+      src={ profileIcon }
     >
       <img
         className="h-8"
