@@ -2,8 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as COMP from '../components';
 import LoginContext from '../context/LoginContext';
-import {
-  saveUserInfos,
+import { saveUserInfos,
   saveMealsToken,
   savecocktailsToken,
 } from '../services/SaveLoginInfo';
@@ -33,8 +32,8 @@ function Login(props) {
   const handleClick = () => {
     const user = { email };
     saveUserInfos(JSON.stringify(user));
-    saveMealsToken();
-    savecocktailsToken();
+    saveMealsToken(1);
+    savecocktailsToken(1);
     history.push('/foods');
   };
 
