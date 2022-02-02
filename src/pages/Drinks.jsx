@@ -5,7 +5,7 @@ export default function Drinks() {
   return (
     <div>
       <div>
-        <COMP.Header label="Drinks" />
+        <COMP.Header showSearch label="Drinks" />
       </div>
       <div className="flex justify-center">
         <div className=" fixed bottom-3 w-full flex max-w-sm ">
