@@ -12,9 +12,7 @@ function SearchBar(props) {
   const [searchRadioValue, setSearchRadioValue] = useState('');
   const history = useHistory();
 
-  async function onClickBtn(event) {
-    event.preventDefault();
-
+  async function onClickBtn() {
     if (searchText.length !== 1 && searchRadioValue === 'Primeira Letra') {
       global.alert('Your search must have only 1 (one) character');
     }
@@ -73,7 +71,7 @@ function SearchBar(props) {
           id="search-button"
           data-testid="exec-search-btn"
           type="button"
-          onClick={ onClickBtn }
+          onClick={ () => onClickBtn() }
         >
           Buscar
         </button>
