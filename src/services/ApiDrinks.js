@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-export const drinksIniciais = async () => {
-  const response = await fetch(
-    'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=',
-  )
-    .then((data) => data.json())
-    .then((data) => data.drinks);
-  return response;
-};
-
-export const fetchApi2 = async () => {
-  const response = await fetch('')
-    .then((data) => data.json())
-    .then((data) => data.meals);
-  return response;
-};
-=======
 const ENDPOINT_DRINKS_INGREDIENT = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=';
 const ENDPOINT_DRINKS_NAME = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 const ENDPOINT_DRINKS_FIRST_LETTER = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=';
@@ -67,4 +50,3 @@ export async function drinkApiDidMount(setDrinks) {
   const { drinks } = results;
   setDrinks(drinks);
 }
->>>>>>> 0fc81ff50d7725d5ce2442d3b794c2fea45ade30
