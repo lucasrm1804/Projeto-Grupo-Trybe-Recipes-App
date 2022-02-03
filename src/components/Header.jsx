@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProfileButton from './ProfileButton';
+import BotaoPerfil from './BotaoPerfil';
 import SearchButton from './SearchButton';
 
 export default function Header(props) {
-  const { label, displaySearchButton } = props;
+  const { label, showSearch } = props;
 
   return (
-    <div>
-      <ProfileButton />
-      <h1 data-testid="page-title">{ label }</h1>
-      {displaySearchButton && <SearchButton />}
+    <div className="flex flex-row">
+      <BotaoPerfil />
+      <h1 data-testid="page-title">{label}</h1>
+      {showSearch && <SearchButton /> }
     </div>
   );
 }
 
 Header.propTypes = {
   label: PropTypes.string.isRequired,
-  displaySearchButton: PropTypes.bool.isRequired,
+  showSearch: PropTypes.bool.isRequired,
 };

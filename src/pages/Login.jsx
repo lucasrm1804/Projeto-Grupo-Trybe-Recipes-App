@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as COMP from '../components';
-import LoginContext from '../context/LoginContext';
-import {
-  saveUserInfos,
+import LoginContext from '../context/Login/LoginContext';
+import { saveUserInfos,
   saveMealsToken,
   savecocktailsToken,
 } from '../services/SaveLoginInfo';
@@ -33,48 +32,41 @@ function Login(props) {
   const handleClick = () => {
     const user = { email };
     saveUserInfos(JSON.stringify(user));
-    saveMealsToken();
-    savecocktailsToken();
+    saveMealsToken(1);
+    savecocktailsToken(1);
     history.push('/foods');
   };
 
   return (
 
-    <>
-      <div className="w-full h-full flex flex-col items-center justify-evenly">
-        <div className="w-full h-28 flex flex-col items-center justify-between">
-          <COMP.LoginInput
-            placeholder="Digite seu email"
-            type="text"
-            id="email"
-            testId="email-input"
-            value={ email }
-            handleChange={ setEmail }
-          />
-          <COMP.LoginInput
-            placeholder="digite sua senha"
-            type="password"
-            id="password"
-            testId="password-input"
-            value={ password }
-            handleChange={ setPassword }
-          />
-        </div>
-        <div className="w-full h-28 flex flex-col items-center justify-between">
-          <COMP.LoginButton
-            label="Play"
-            testId="login-submit-btn"
-            isDisabled={ buttonLoginDisabled }
-            handleClick={ handleClick }
-          />
-        </div>
+    <div className="w-full h-full flex flex-col items-center justify-evenly">
+      <div className="w-full h-28 flex flex-col items-center justify-between">
+        <COMP.LoginInput
+          placeholder="Digite seu email"
+          type="text"
+          id="email"
+          testId="email-input"
+          value={ email }
+          handleChange={ setEmail }
+        />
+        <COMP.LoginInput
+          placeholder="digite sua senha"
+          type="password"
+          id="password"
+          testId="password-input"
+          value={ password }
+          handleChange={ setPassword }
+        />
       </div>
-      <div className="flex justify-center">
-        <div className=" fixed bottom-3 w-full flex max-w-sm ">
-          <COMP.Footer />
-        </div>
+      <div className="w-full h-28 flex flex-col items-center justify-between">
+        <COMP.LoginButton
+          label="Play"
+          testId="login-submit-btn"
+          isDisabled={ buttonLoginDisabled }
+          handleClick={ handleClick }
+        />
       </div>
-    </>
+    </div>
   );
 }
 

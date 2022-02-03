@@ -1,20 +1,25 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import profileIcon from '../images/profileIcon.svg';
+import PropTypes from 'prop-types';
 
-export default function ProfileButton() {
-  const history = useHistory();
+function ProfileButton(props) {
+  const { label, testId, handleClick } = props;
   return (
     <button
+      data-testid={ testId }
       type="button"
-      onClick={ () => history.push('/profile') }
+      onClick={ () => handleClick() }
+      className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4
+       rounded inline-flex items-center"
     >
-      <img
-        className="h-8"
-        data-testid="profile-top-btn"
-        src={ profileIcon }
-        alt="profile icon"
-      />
+      { label }
     </button>
   );
 }
+
+ProfileButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  testId: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
+
+export default ProfileButton;

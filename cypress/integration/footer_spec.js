@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('19 - Implemente os elementos do menu inferior respeitando os atributos descritos no protótipo', () => {
-  it('Tem os data-testids footer, drinks-bottom-btn, explore-bottom-btn e food-bottom-btn', () => {
+  it('Tem os data-testIds footer, drinks-bottom-btn, explore-bottom-btn e food-bottom-btn', () => {
     cy.visit('http://localhost:3000/foods');
 
     cy.get('[data-testid="footer"]');
@@ -166,7 +166,7 @@ describe('23 - Redirecione a pessoa usuária para a tela de explorar ao clicar n
   });
 });
 
-describe('24 - Redirecione a pessoa usuárua para uma lista de comidas ao clicar no ícone de comidas', () => {
+describe('24 - Redirecione a pessoa usuária para uma lista de comidas ao clicar no ícone de comidas', () => {
   it('Redireciona para a rota correta', () => {
     cy.visit('http://localhost:3000/drinks');
 

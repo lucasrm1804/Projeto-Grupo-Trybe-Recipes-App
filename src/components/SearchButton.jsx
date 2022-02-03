@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import HeaderContext from '../context/HeaderContext';
+import HeaderContext from '../context/Header/HeaderContext';
 import searchIcon from '../images/searchIcon.svg';
 
 export default function SearchButton() {
@@ -11,9 +11,9 @@ export default function SearchButton() {
 
   return (
     <button
-      data-testid="exec-search-btn"
       type="button"
       onClick={ () => handleClick() }
+      src={ searchIcon }
     >
       <img
         data-testid="search-top-btn"
