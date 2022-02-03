@@ -8,7 +8,7 @@ export default function ExploreIngredientsDrinks() {
         <COMP.Header label="Explore Ingredients" />
       </div>
       <div className="flex justify-center">
-        <div className=" fixed bottom-3 w-full flex max-w-sm ">
+        <div className=" fixed bottom-0 w-full flex max-w-sm ">
           <COMP.Footer />
         </div>
       </div>

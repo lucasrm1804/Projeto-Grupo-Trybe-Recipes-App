@@ -11,7 +11,6 @@ export default function SearchButton() {
 
   return (
     <button
-      data-testid="exec-search-btn"
       type="button"
       onClick={ () => handleClick() }
       src={ searchIcon }

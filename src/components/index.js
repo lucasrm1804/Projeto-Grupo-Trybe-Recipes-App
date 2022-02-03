@@ -3,6 +3,7 @@ import LoginInput from './LoginInput';
 import Footer from './Footer';
 import Header from './Header';
 import ProfileButton from './ProfileButton';
+import SearchBar from './SearchBar';
 
 export {
   LoginButton,
@@ -10,4 +11,5 @@ export {
   Footer,
   Header,
   ProfileButton,
+  SearchBar,
 };
