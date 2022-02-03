@@ -3,7 +3,6 @@ import * as COMP from '../components';
 import HeaderContext from '../context/Header/HeaderContext';
 import DrinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
 import { drinkApiDidMount } from '../services/ApiDrinks';
-import DrinkCards from '../components/DrinkCards';
 
 export default function Drinks() {
   const { displaySearchBar } = useContext(HeaderContext);
@@ -24,7 +23,7 @@ export default function Drinks() {
       </div>
       <div>
         {drinks && drinks.slice(0, TWELVE).map((drink, index) => (
-          <DrinkCards
+          <COMP.DrinkCards
             key={ drink.idDrink }
             index={ index }
             idDrink={ drink.idDrink }

@@ -3,7 +3,6 @@ import * as COMP from '../components';
 import HeaderContext from '../context/Header/HeaderContext';
 import DrinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
 import { apiMealsDidMount } from '../services/ApiFood';
-import FoodCards from '../components/FoodCards';
 
 export default function Foods() {
   const { displaySearchBar } = useContext(HeaderContext);
@@ -24,7 +23,7 @@ export default function Foods() {
       </div>
       <div>
         {meals && meals.slice(0, TWELVE).map((food, index) => (
-          <FoodCards
+          <COMP.FoodCards
             key={ food.idMeal }
             index={ index }
             idMeal={ food.idMeal }

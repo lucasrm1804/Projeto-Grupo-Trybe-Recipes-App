@@ -4,6 +4,8 @@ import Footer from './Footer';
 import Header from './Header';
 import ProfileButton from './ProfileButton';
 import SearchBar from './SearchBar';
+import FoodCards from './FoodCards';
+import DrinkCards from './DrinkCards';
 
 export {
   LoginButton,
@@ -12,4 +14,6 @@ export {
   Header,
   ProfileButton,
   SearchBar,
+  FoodCards,
+  DrinkCards,
 };
