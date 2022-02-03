@@ -43,3 +43,10 @@ export async function requestDrinks(searchRadioValue, searchText, setDrinks, his
     setDrinks(drinks);
   }
 }
+
+export async function drinkApiDidMount(setDrinks) {
+  const results = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
+    .then((res) => res.json());
+  const { drinks } = results;
+  setDrinks(drinks);
+}

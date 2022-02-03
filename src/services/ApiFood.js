@@ -51,3 +51,10 @@ export async function requestMeals(searchRadioValue, searchText, setMeals, histo
     setMeals(meals);
   }
 }
+
+export async function apiMealsDidMount(setMeals) {
+  const result = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
+    .then((res) => res.json());
+  const { meals } = result;
+  setMeals(meals);
+}
