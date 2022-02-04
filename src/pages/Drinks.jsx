@@ -1,17 +1,19 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import * as COMP from '../components';
 import HeaderContext from '../context/Header/HeaderContext';
 import DrinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
-import { drinkApiDidMount } from '../services/ApiDrinks';
-import DrinkCards from '../components/DrinkCards';
+import { drinkApiDidMount, apiDrinksCategory } from '../services/ApiDrinks';
 
 export default function Drinks() {
   const { displaySearchBar } = useContext(HeaderContext);
   const { drinks, setDrinks } = useContext(DrinksAndFoodsContext);
+  const [categoryName, setCategoryName] = useState([]);
   const TWELVE = 12;
+  const FIVE = 5;
 
   useEffect(() => {
     drinkApiDidMount(setDrinks);
+    apiDrinksCategory(setCategoryName);
   }, []);
   return (
     <div>
@@ -22,9 +24,24 @@ export default function Drinks() {
         {displaySearchBar && <COMP.SearchBar title="Drinks" />}
 
       </div>
+      <COMP.FilterButtonAll
+        label="Drinks"
+      />
+
+      <div>
+        {categoryName
+        && categoryName.slice(0, FIVE).map((category, index) => (
+          <COMP.FilterButton
+            key={ index }
+            categoryName={ category.strCategory }
+            label="Drinks"
+          />
+        ))}
+
+      </div>
       <div>
         {drinks && drinks.slice(0, TWELVE).map((drink, index) => (
-          <DrinkCards
+          <COMP.DrinkCards
             key={ drink.idDrink }
             index={ index }
             idDrink={ drink.idDrink }
