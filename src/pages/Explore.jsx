@@ -1,17 +1,31 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import * as COMP from '../components';
 
 export default function Explore() {
-  return (
-    <div>
-      <div>
-        <COMP.Header label="Explore" />
-      </div>
-      <div className="flex justify-center">
-        <div className=" fixed bottom-0 w-full flex max-w-sm ">
-          <COMP.Footer />
-        </div>
-      </div>
+  const history = useHistory();
 
-    </div>);
+  return (
+    <>
+      <COMP.Header label="Explore" />
+      <div>
+        <button
+          data-testid="explore-foods"
+          type="button"
+          onClick={ () => history.push('/explore/foods') }
+        >
+          Explore Foods
+        </button>
+
+        <button
+          data-testid="explore-drinks"
+          type="button"
+          onClick={ () => history.push('/explore/drinks') }
+        >
+          Explore Drinks
+        </button>
+      </div>
+      <COMP.Footer />
+    </>
+  );
 }
