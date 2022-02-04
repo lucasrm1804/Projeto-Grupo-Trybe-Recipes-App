@@ -56,3 +56,10 @@ export async function apiDrinksCategory(setCategoryName) {
     .then((res) => res.json());
   setCategoryName(result.drinks);
 }
+
+export async function apiFilterCategoryDrinks(setDrinks, categoryName) {
+  const result = await
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${categoryName}`)
+    .then((res) => res.json());
+  setDrinks(result.drinks);
+}
