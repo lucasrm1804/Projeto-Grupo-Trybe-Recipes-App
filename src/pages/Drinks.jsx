@@ -3,7 +3,7 @@ import * as COMP from '../components';
 import HeaderContext from '../context/Header/HeaderContext';
 import DrinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
 import { drinkApiDidMount } from '../services/ApiDrinks';
-import DrinkCards from '../components/DrinkCards';
+import DrinkCards from '../components/Cards/DrinkCards';
 
 export default function Drinks() {
   const { displaySearchBar } = useContext(HeaderContext);

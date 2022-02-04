@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import '../App.css';
-import drinkIcon from '../images/drinkIcon.svg';
-import exploreIcon from '../images/exploreIcon.svg';
-import mealIcon from '../images/mealIcon.svg';
+import drinkIcon from '../../images/drinkIcon.svg';
+import exploreIcon from '../../images/exploreIcon.svg';
+import mealIcon from '../../images/mealIcon.svg';
 
 export default function Footer() {
   const [redirect, setRedirect] = useState(false);

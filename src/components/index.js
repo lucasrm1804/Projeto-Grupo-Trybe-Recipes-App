@@ -1,9 +1,9 @@
-import LoginButton from './LoginButton';
-import LoginInput from './LoginInput';
-import Footer from './Footer';
-import Header from './Header';
-import ProfileButton from './ProfileButton';
-import SearchBar from './SearchBar';
+import LoginButton from './Login/LoginButton';
+import LoginInput from './Login/LoginInput';
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
+import ProfileButton from './Profile/ProfileButton';
+import SearchBar from './Header/SearchBar';
 
 export {
   LoginButton,
