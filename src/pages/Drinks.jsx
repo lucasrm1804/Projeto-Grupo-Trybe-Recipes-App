@@ -24,6 +24,9 @@ export default function Drinks() {
         {displaySearchBar && <COMP.SearchBar title="Drinks" />}
 
       </div>
+      <COMP.FilterButtonAll
+        label="Drinks"
+      />
 
       <div>
         {categoryName

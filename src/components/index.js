@@ -7,6 +7,7 @@ import SearchBar from './SearchBar';
 import FoodCards from './FoodCards';
 import DrinkCards from './DrinkCards';
 import FilterButton from './FilterButton';
+import FilterButtonAll from './FilterButtonAll';
 
 export {
   LoginButton,
@@ -18,4 +19,5 @@ export {
   FoodCards,
   DrinkCards,
   FilterButton,
+  FilterButtonAll,
 };

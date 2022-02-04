@@ -26,6 +26,10 @@ export default function Foods() {
 
       </div>
       <div>
+        <COMP.FilterButtonAll
+          label="Foods"
+        />
+
         {categoryName
         && categoryName.slice(0, FIVE).map((category, index) => (
           <COMP.FilterButton
