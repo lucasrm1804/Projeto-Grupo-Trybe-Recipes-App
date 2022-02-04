@@ -4,6 +4,9 @@ import Footer from './Footer';
 import Header from './Header';
 import ProfileButton from './ProfileButton';
 import SearchBar from './SearchBar';
+import DetailTop from './DetailTop';
+import DetailBody from './DetailBody';
+import DetailRecommend from './DetailRecommend';
 
 export {
   LoginButton,
@@ -12,4 +15,7 @@ export {
   Header,
   ProfileButton,
   SearchBar,
+  DetailTop,
+  DetailBody,
+  DetailRecommend,
 };

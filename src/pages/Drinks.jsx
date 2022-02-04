@@ -12,7 +12,7 @@ export default function Drinks() {
 
   useEffect(() => {
     drinkApiDidMount(setDrinks);
-  }, []);
+  }, [setDrinks]);
   return (
     <div>
       <div>
