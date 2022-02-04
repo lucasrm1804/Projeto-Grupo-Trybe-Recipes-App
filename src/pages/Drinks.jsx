@@ -31,6 +31,7 @@ export default function Drinks() {
           <COMP.FilterButton
             key={ index }
             categoryName={ category.strCategory }
+            label="Drinks"
           />
         ))}
 
