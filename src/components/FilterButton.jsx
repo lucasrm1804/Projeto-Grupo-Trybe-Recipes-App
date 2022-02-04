@@ -1,18 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import DrinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
-import { apiFilterCategoryFoods } from '../services/ApiFood';
-import { apiFilterCategoryDrinks } from '../services/ApiDrinks';
+import { apiFilterCategoryFoods, apiMealsDidMount } from '../services/ApiFood';
+import { apiFilterCategoryDrinks, drinkApiDidMount } from '../services/ApiDrinks';
 
 export default function FilterButtonsFoods(props) {
   const { categoryName, label } = props;
   const { setMeals, setDrinks } = useContext(DrinksAndFoodsContext);
+  const [toggle, setToggle] = useState(false);
 
   const onClickBtn = () => {
-    if (label === 'Foods') {
-      apiFilterCategoryFoods(setMeals, categoryName);
-    } if (label === 'Drinks') {
-      apiFilterCategoryDrinks(setDrinks, categoryName);
+    if (toggle === true) {
+      if (label === 'Foods') {
+        apiMealsDidMount(setMeals);
+        setToggle(false);
+      }
+      if (label === 'Drinks') {
+        drinkApiDidMount(setDrinks);
+        setToggle(false);
+      }
+    } else {
+      if (label === 'Foods') {
+        apiFilterCategoryFoods(setMeals, categoryName);
+        setToggle(true);
+      } if (label === 'Drinks') {
+        apiFilterCategoryDrinks(setDrinks, categoryName);
+        setToggle(true);
+      }
     }
   };
   return (
