@@ -6,7 +6,7 @@ export default function FoodCards(props) {
   const { index, strMeal, strMealThumb, idMeal } = props;
   return (
     <div data-testid={ `${index}-recipe-card` }>
-      <Link to={ `/meals/${idMeal}` }>
+      <Link to={ `/foods/${idMeal}` }>
         <img src={ strMealThumb } alt={ strMeal } data-testid={ `${index}-card-img` } />
         <p data-testid={ `${index}-card-name` }>
           { strMeal }
