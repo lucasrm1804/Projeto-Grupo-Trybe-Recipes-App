@@ -8,11 +8,15 @@ import { apiRecommendDrinks } from '../services/ApiDrinks';
 
 export default function DetailFoods() {
   const { id } = useParams();
-  const { receita, setReceita } = useContext(receitaAtualContext);
+  const { receita, setReceita, label, setLabel } = useContext(receitaAtualContext);
   const {
     drinksRecommended,
     setDrinksRecommended } = useContext(drinksAndFoodsContext);
   const SIX = 6;
+
+  useEffect(() => {
+    setLabel('foods');
+  }, []);
 
   useEffect(() => {
     apiReceitaAtual(id, setReceita);
@@ -44,6 +48,7 @@ export default function DetailFoods() {
         instructions={ strInstructions }
         quantity={ quantity }
         id={ id }
+        label={ label }
       />
       <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
         <h2>Video</h2>

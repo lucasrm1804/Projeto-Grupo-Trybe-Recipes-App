@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 export default function DetailBody(props) {
-  const { ingredients, instructions, quantity, id } = props;
+  const { ingredients, instructions, quantity, id, label } = props;
   const [redirect, setRedirect] = useState(false);
   return (
     <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
@@ -36,7 +36,7 @@ export default function DetailBody(props) {
           Iniciar Receita
         </button>
       </div>
-      {redirect && <Redirect to={ `/foods/${id}/in-progress` } /> }
+      {redirect && <Redirect to={ `/${label}/${id}/in-progress` } /> }
     </div>
 
   );
@@ -47,4 +47,5 @@ DetailBody.propTypes = {
   quantity: PropTypes.oneOfType(PropTypes.string).isRequired,
   instructions: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
 };

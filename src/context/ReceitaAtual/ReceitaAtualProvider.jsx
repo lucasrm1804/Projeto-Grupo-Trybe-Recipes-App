@@ -4,12 +4,15 @@ import ReceitaAtualContext from './ReceitaAtualContext';
 
 function ReceitaAtualProvider({ children }) {
   const [receita, setReceita] = useState([]);
+  const [label, setLabel] = useState('');
 
   return (
     <ReceitaAtualContext.Provider
       value={ {
         receita,
         setReceita,
+        label,
+        setLabel,
       } }
     >
       {children}
