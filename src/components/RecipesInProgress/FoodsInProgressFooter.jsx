@@ -1,12 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function FoodsInProgressFooter() {
+export default function FoodsInProgressFooter(props) {
+  const { strInstructions } = props;
   return (
     <div>
       <p
         data-testid="instructions"
       >
-        instruções
+        {strInstructions}
       </p>
 
       <button
@@ -18,3 +20,6 @@ export default function FoodsInProgressFooter() {
     </div>
   );
 }
+FoodsInProgressFooter.propTypes = {
+  strInstructions: PropTypes.string.isRequired,
+};

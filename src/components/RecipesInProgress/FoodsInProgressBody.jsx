@@ -1,25 +1,13 @@
 import React, { useState } from 'react';
-import { saveRecipesInProgress } from '../../services/SaveLocalStorage';
+import PropTypes from 'prop-types';
+// import { saveRecipesInProgress } from '../../services/SaveLocalStorage';
 
-export default function FoodsInProgressBody() {
+export default function FoodsInProgressBody(props) {
+  const { category, ingredients } = props;
   const [toggle, setToggle] = useState(false);
 
   const onClickChange = () => {
-    const valuesRecipes = {
-      cocktails: {
-        cocktails: {
-          idDaBebida: [lista - de - ingredientes - utilizados],
-        },
-        meals: {
-          idDaComida: [lista - de - ingredientes - utilizados],
-        },
-      },
-
-    };
-    saveRecipesInProgress(valuesRecipes);
-
     setToggle(!toggle);
-    console.log(meals);
   };
   return (
     <div>
@@ -28,20 +16,27 @@ export default function FoodsInProgressBody() {
       </h3>
 
       <h2>Ingrediente</h2>
-      <label
-        htmlFor="ingredient-input"
-        className={ toggle && 'line-through' }
-      >
-        <input
-          type="checkbox"
-          data-testid={ `${index}-ingredient-step` }
-          checked={ toggle }
-          id="ingredient-input"
-          onChange={ onClickChange }
-
-        />
-        test
-      </label>
-
+      {ingredients.map((ingredient, index) => (
+        ingredient && (
+          <label
+            htmlFor="ingredient-input"
+            className={ toggle && 'line-through' }
+            key={ index }
+          >
+            <input
+              type="checkbox"
+              data-testid={ `${index}-ingredient-step` }
+              checked={ toggle }
+              id="ingredient-input"
+              onChange={ onClickChange }
+            />
+            {ingredient }
+          </label>)
+      ))}
     </div>);
 }
+
+FoodsInProgressBody.propTypes = {
+  category: PropTypes.string.isRequired,
+  ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
