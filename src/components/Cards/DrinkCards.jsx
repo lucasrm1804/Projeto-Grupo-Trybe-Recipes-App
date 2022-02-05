@@ -7,7 +7,12 @@ export default function DrinkCards(props) {
   return (
     <div data-testid={ `${index}-recipe-card` }>
       <Link to={ `/drinks/${idDrink}` }>
-        <img src={ strDrinkThumb } alt={ strDrink } data-testid={ `${index}-card-img` } />
+        <img
+          src={ strDrinkThumb }
+          alt={ strDrink }
+          data-testid={ `${index}-card-img` }
+          className="w-300"
+        />
         <p data-testid={ `${index}-card-name` }>
           { strDrink }
         </p>

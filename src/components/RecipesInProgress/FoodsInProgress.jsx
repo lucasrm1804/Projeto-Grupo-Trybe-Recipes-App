@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { saveRecipesInProgress } from '../../services/SaveLocalStorage';
 
-export default function FoodsInProgress() {
+export default function FoodsInProgress(props) {
   const { index, strMeal, strMealThumb } = props;
+  const [toggle, setToggle] = useState(false);
+  const onClickChange = () => {
+    const valuesRecipes = {
+      cocktails: {
+        cocktails: {
+          idDaBebida: [lista - de - ingredientes - utilizados],
+        },
+        meals: {
+          idDaComida: [lista - de - ingredientes - utilizados],
+        },
+      },
+
+    };
+    saveRecipesInProgress(valuesRecipes);
+  };
 
   return (
     <div>
@@ -28,12 +44,21 @@ export default function FoodsInProgress() {
         {category}
       </h3>
 
-      <ol>
-        <li data-testid={ `${index}-ingredient-step` }>
-          {ingredient }
-        </li>
-      </ol>
+      <h2>Ingrediente</h2>
+      <label
+        htmlFor="ingredient-input"
+        className={ toggle && 'line-through' }
+      >
+        <input
+          type="checkbox"
+          data-testid={ `${index}-ingredient-step` }
+          checked={ toggle }
+          id="ingredient-input"
+          onChange={ () => setToggle(!toggle) }
 
+        />
+        test
+      </label>
       <p
         data-testid="instructions"
       >

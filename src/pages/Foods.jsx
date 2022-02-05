@@ -3,6 +3,7 @@ import * as COMP from '../components';
 import HeaderContext from '../context/Header/HeaderContext';
 import DrinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
 import { apiMealsDidMount, apiMealsCategory } from '../services/ApiFood';
+import FoodsInProgress from '../components/RecipesInProgress/FoodsInProgress';
 
 export default function Foods() {
   const { displaySearchBar } = useContext(HeaderContext);
@@ -51,6 +52,9 @@ export default function Foods() {
             strMealThumb={ food.strMealThumb }
           />
         ))}
+      </div>
+      <div>
+        <FoodsInProgress />
       </div>
 
       <div className="flex justify-center">

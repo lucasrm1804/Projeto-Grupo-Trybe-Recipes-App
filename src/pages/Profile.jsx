@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as COMP from '../components';
-import getSavedUser from '../services/getUser';
+import getSavedUser from '../services/GetLocalStorage';
 import { saveUserInfos,
   saveMealsToken,
   savecocktailsToken,
-} from '../services/SaveLoginInfo';
+} from '../services/SaveLocalStorage';
 
 function Profile(props) {
   const { history } = props;
