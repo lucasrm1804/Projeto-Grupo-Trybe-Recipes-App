@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import shareIcon from '../images/shareIcon.svg';
-import whiteHeartIcon from '../images/whiteHeartIcon.svg';
+import shareIcon from '../../images/shareIcon.svg';
+import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
 
 export default function DetailTop(props) {
   const { recipeTitle, receitaCategory, recipeImg } = props;

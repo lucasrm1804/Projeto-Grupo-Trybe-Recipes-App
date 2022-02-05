@@ -5,7 +5,7 @@ export default function DetailRecommend(props) {
   const { recipeTitle, receitaCategory, recipeImg, i } = props;
   return (
     <div
-      data-testid={ `${i}-recomendation-card` }
+      data-testid={ `${i}-recommendation-card` }
       className="flex flex-col flex-nowrap justify-around items-center w-40 h-54"
     >
       <img
@@ -16,7 +16,7 @@ export default function DetailRecommend(props) {
       <div className="px-6 py-4">
         <div>
           <h2
-            data-testid={ `${i}-recomendation-title` }
+            data-testid={ `${i}-recommendation-title` }
             className="font-bold text-xl mb-2"
           >
             { recipeTitle }
