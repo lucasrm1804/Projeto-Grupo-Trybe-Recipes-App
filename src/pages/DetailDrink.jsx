@@ -22,7 +22,7 @@ export default function DetailDrink() {
     apiRecommendFoods(setMealsRecommended);
   }, [id, setMealsRecommended]);
 
-  const { strDrink, strCategory, strDrinkThumb, strInstructions } = receita;
+  const { strDrink, strAlcoholic, strDrinkThumb, strInstructions } = receita;
 
   const ingredientsStr = Object.keys(receita)
     .filter((value) => value.includes('strIngredient'));
@@ -32,12 +32,11 @@ export default function DetailDrink() {
     .filter((value) => value.includes('strMeasure'));
   const quantity = quantityStr.map((value) => receita[value]);
 
-  console.log(mealsRecommended);
   return (
     <div>
       <COMP.DetailTop
         recipeTitle={ strDrink }
-        receitaCategory={ strCategory }
+        receitaCategory={ strAlcoholic }
         recipeImg={ strDrinkThumb }
       />
       <COMP.DetailBody
@@ -45,18 +44,31 @@ export default function DetailDrink() {
         instructions={ strInstructions }
         quantity={ quantity }
       />
-      <div className="flex overflow-x-scroll">
+      <div
+        className="h-54 pt-4 w-full flex flex-row flex-nowrap overflow-x-scroll"
+      >
         {mealsRecommended && mealsRecommended.slice(0, SIX).map((food, i) => (
-          <div className="object-contain h-full w-44" key={ i }>
+          <div className="h-54 w-40 mx-2 pl-2" key={ i }>
             <COMP.DetailRecommend
-              className=""
+              className="h-54 w-40 mx-2 border border-black"
               recipeTitle={ food.strMeal }
               receitaCategory={ food.strCategory }
               recipeImg={ food.strMealThumb }
+              i={ i }
             />
 
           </div>
         ))}
+      </div>
+      <div className="flex justify-center">
+        <button
+          data-testid="start-recipe-btn"
+          type="button"
+          className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4
+          border-b-4 border-blue-700 hover:border-blue-500 rounded fixed bottom-0"
+        >
+          Iniciar Receita
+        </button>
       </div>
     </div>);
 }

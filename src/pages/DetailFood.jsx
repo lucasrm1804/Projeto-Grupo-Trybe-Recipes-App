@@ -9,11 +9,18 @@ import { apiRecommendDrinks } from '../services/ApiDrinks';
 export default function DetailFoods() {
   const { id } = useParams();
   const { receita, setReceita } = useContext(receitaAtualContext);
-  const { drinksRecommended, setDrinksRecommended } = useContext(foodrinksAndFoodsContextdsAnd)
+  const {
+    drinksRecommended,
+    setDrinksRecommended } = useContext(drinksAndFoodsContext);
+  const SIX = 6;
 
   useEffect(() => {
     apiReceitaAtual(id, setReceita);
   }, [id, setReceita]);
+
+  useEffect(() => {
+    apiRecommendDrinks(setDrinksRecommended);
+  }, [id, setDrinksRecommended]);
 
   const { strMeal, strCategory, strMealThumb, strInstructions, strYoutube } = receita;
 
@@ -45,6 +52,31 @@ export default function DetailFoods() {
           />
           <source src={ strYoutube } />
         </video>
+      </div>
+      <div
+        className="h-54 pt-4 w-full flex flex-row flex-nowrap overflow-x-scroll"
+      >
+        {drinksRecommended && drinksRecommended.slice(0, SIX).map((drink, i) => (
+          <div className="h-54 w-40 mx-2 pl-2" key={ i }>
+            <COMP.DetailRecommend
+              className="h-54 w-40 mx-2"
+              recipeTitle={ drink.strDrink }
+              receitaCategory={ drink.strAlcoholic }
+              recipeImg={ drink.strDrinkThumb }
+              i={ i }
+            />
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-center">
+        <button
+          data-testid="start-recipe-btn"
+          type="button"
+          className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4
+          border-b-4 border-blue-700 hover:border-blue-500 rounded fixed bottom-0"
+        >
+          Iniciar Receita
+        </button>
       </div>
     </div>);
 }
