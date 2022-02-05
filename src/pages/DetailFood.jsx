@@ -16,7 +16,7 @@ export default function DetailFoods() {
 
   useEffect(() => {
     setLabel('foods');
-  }, []);
+  }, [setLabel]);
 
   useEffect(() => {
     apiReceitaAtual(id, setReceita);
