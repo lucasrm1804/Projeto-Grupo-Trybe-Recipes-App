@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { saveRecipesInProgress } from '../../services/SaveLocalStorage';
 
-export default function FoodsInProgress(props) {
-  const { index, strMeal, strMealThumb } = props;
+export default function FoodsInProgressBody() {
   const [toggle, setToggle] = useState(false);
+
   const onClickChange = () => {
     const valuesRecipes = {
       cocktails: {
@@ -18,28 +17,12 @@ export default function FoodsInProgress(props) {
 
     };
     saveRecipesInProgress(valuesRecipes);
-  };
 
+    setToggle(!toggle);
+    console.log(meals);
+  };
   return (
     <div>
-      <img src={ strMealThumb } alt={ strMeal } data-testid="recipe-photo" />
-      <p data-testid="recipe-title">
-        { strMeal }
-      </p>
-      <button
-        type="button"
-        data-testid="share-btn"
-      >
-        Compartilhar
-      </button>
-
-      <button
-        type="button"
-        data-testid="favorite-btn"
-      >
-        Favoritar
-      </button>
-
       <h3 data-testid="recipe-category">
         {category}
       </h3>
@@ -54,29 +37,11 @@ export default function FoodsInProgress(props) {
           data-testid={ `${index}-ingredient-step` }
           checked={ toggle }
           id="ingredient-input"
-          onChange={ () => setToggle(!toggle) }
+          onChange={ onClickChange }
 
         />
         test
       </label>
-      <p
-        data-testid="instructions"
-      >
-        instruções
-      </p>
-
-      <button
-        type="button"
-        data-testid="finish-recipe-btn"
-      >
-        Finalizar
-      </button>
 
     </div>);
 }
-
-FoodsInProgress.propTypes = {
-  strMeal: PropTypes.string.isRequired,
-  strMealThumb: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
-};
