@@ -7,6 +7,11 @@ import SearchBar from './SearchBar';
 import DetailTop from './DetailTop';
 import DetailBody from './DetailBody';
 import DetailRecommend from './DetailRecommend';
+import FoodCards from './FoodCards';
+import DrinkCards from './DrinkCards';
+import FilterButton from './FilterButton';
+import FilterButtonAll from './FilterButtonAll';
+
 
 export {
   LoginButton,
@@ -15,7 +20,13 @@ export {
   Header,
   ProfileButton,
   SearchBar,
+
   DetailTop,
   DetailBody,
   DetailRecommend,
+
+  FoodCards,
+  DrinkCards,
+  FilterButton,
+  FilterButtonAll,
 };

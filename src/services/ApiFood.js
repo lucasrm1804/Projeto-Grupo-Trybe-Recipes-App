@@ -55,8 +55,20 @@ export async function requestMeals(searchRadioValue, searchText, setMeals, histo
 export async function apiMealsDidMount(setMeals) {
   const result = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
     .then((res) => res.json());
-  const { meals } = result;
-  setMeals(meals);
+  // const { meals } = result;
+  setMeals(result.meals);
+}
+
+export async function apiMealsCategory(setCategoryName) {
+  const result = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list')
+    .then((res) => res.json());
+  setCategoryName(result.meals);
+}
+
+export async function apiFilterCategoryFoods(setMeals, categoryName) {
+  const result = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`)
+    .then((res) => res.json());
+  setMeals(result.meals);
 }
 
 export async function apiReceitaAtual(id, setReceitaAtual) {
