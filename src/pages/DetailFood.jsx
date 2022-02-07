@@ -9,6 +9,7 @@ import { apiRecommendDrinks } from '../services/ApiDrinks';
 export default function DetailFoods() {
   const { id } = useParams();
   const { receita, setReceita, label, setLabel } = useContext(receitaAtualContext);
+
   const {
     drinksRecommended,
     setDrinksRecommended } = useContext(drinksAndFoodsContext);

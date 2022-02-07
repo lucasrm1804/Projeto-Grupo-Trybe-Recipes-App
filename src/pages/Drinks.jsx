@@ -15,6 +15,7 @@ export default function Drinks() {
     drinkApiDidMount(setDrinks);
     apiDrinksCategory(setCategoryName);
   }, [setDrinks]);
+
   return (
     <div>
       <div>
