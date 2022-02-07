@@ -14,7 +14,7 @@ export default function Foods() {
   useEffect(() => {
     apiMealsDidMount(setMeals);
     apiMealsCategory(setCategoryName);
-  }, []);
+  }, [setMeals]);
 
   return (
     <div>

@@ -5,12 +5,18 @@ import DrinksAndFoodsContext from './DrinksAndFoodsContext';
 function Provider({ children }) {
   const [meals, setMeals] = useState([]);
   const [drinks, setDrinks] = useState([]);
+  const [mealsRecommended, setMealsRecommended] = useState([]);
+  const [drinksRecommended, setDrinksRecommended] = useState([]);
 
   const contextValue = {
     meals,
     setMeals,
     drinks,
     setDrinks,
+    mealsRecommended,
+    setMealsRecommended,
+    drinksRecommended,
+    setDrinksRecommended,
   };
 
   return (
