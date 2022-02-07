@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import ReceitaAtualContext from '../../context/ReceitaAtual/ReceitaAtualContext';
 // import { saveRecipesInProgress } from '../../services/SaveLocalStorage';
 
 export default function FoodsInProgressBody(props) {
   const { category, ingredients } = props;
-  const [toggle, setToggle] = useState(false);
+  const { toggle, setToggle } = useContext(ReceitaAtualContext);
 
   const onClickChange = () => {
     setToggle(!toggle);
@@ -22,13 +23,15 @@ export default function FoodsInProgressBody(props) {
             htmlFor="ingredient-input"
             className={ toggle && 'line-through' }
             key={ index }
+            data-testid={ `${index}-ingredient-step` }
+
           >
             <input
               type="checkbox"
-              data-testid={ `${index}-ingredient-step` }
-              checked={ toggle }
               id="ingredient-input"
+              checked={ toggle }
               onChange={ onClickChange }
+
             />
             {ingredient }
           </label>)
