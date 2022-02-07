@@ -7,7 +7,6 @@ function ReceitaAtualProvider({ children }) {
   const [label, setLabel] = useState('');
   const [toggle, setToggle] = useState(false);
 
-
   return (
     <ReceitaAtualContext.Provider
       value={ {
