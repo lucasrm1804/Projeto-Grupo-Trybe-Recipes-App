@@ -1,13 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import ReceitaAtualContext from '../../context/ReceitaAtual/ReceitaAtualContext';
 
 export default function DrinksInProgressBody(props) {
   const { strAlcoholic, ingredients } = props;
-  const { toggle, setToggle } = useContext(ReceitaAtualContext);
+  //! função consultada no repositório do eduardo Miyazaki link: https://github.com/tryber/sd-016-a-project-recipes-app/pull/614/commits/ef0964857119695eecdc6a538141cc8445eab2b0
+  const [toggle, setToggle] = useState(
+    ingredients.map((ingredient) => ({
+      ingredient, checked: false,
+    })),
+  );
 
-  const onClickChange = () => {
-    setToggle(!toggle);
+  const onClickChange = ({ target: { value } }) => {
+    setToggle((prevState) => {
+      const newToggle = prevState.map((item) => {
+        if (item.ingredient === value) {
+          return {
+            ...item, checked: !item.checked,
+          };
+        }
+        return item;
+      });
+      return newToggle;
+    });
   };
   return (
     <div>
@@ -20,16 +34,17 @@ export default function DrinksInProgressBody(props) {
       {ingredients.map((ingredient, index) => (
         ingredient && (
           <label
-            htmlFor="ingredient-input"
-            className={ toggle && 'line-through' }
+            htmlFor={ ingredient[index] }
+            className={ toggle[index].checked && 'line-through' }
             key={ index }
             data-testid={ `${index}-ingredient-step` }
           >
             <input
               type="checkbox"
-              checked={ toggle }
-              id="ingredient-input"
-              onChange={ onClickChange }
+              checked={ toggle[index].checked }
+              onClick={ (target) => onClickChange(target) }
+              value={ ingredient }
+              id={ ingredient[index] }
             />
             {ingredient }
           </label>)
