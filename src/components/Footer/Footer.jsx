@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import '../App.css';
-import drinkIcon from '../images/drinkIcon.svg';
-import exploreIcon from '../images/exploreIcon.svg';
-import mealIcon from '../images/mealIcon.svg';
+import drinkIcon from '../../images/drinkIcon.svg';
+import exploreIcon from '../../images/exploreIcon.svg';
+import mealIcon from '../../images/mealIcon.svg';
 
 export default function Footer() {
   const [redirect, setRedirect] = useState(false);
@@ -20,7 +19,7 @@ export default function Footer() {
     <div
       data-testid="footer"
       className="
-      fixed bottom-0 w-full flex max-w-sm flex justify-around max-w-sm items-end"
+      fixed bottom-0 w-full flex max-w-sm flex justify-around  items-end"
     >
 
       <button

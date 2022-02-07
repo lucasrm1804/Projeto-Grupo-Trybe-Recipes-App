@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import HeaderContext from '../context/Header/HeaderContext';
-import searchIcon from '../images/searchIcon.svg';
+import HeaderContext from '../../context/Header/HeaderContext';
+import searchIcon from '../../images/searchIcon.svg';
 
 export default function SearchButton() {
   const { displaySearchBar, setDisplaySearchBar } = useContext(HeaderContext);

@@ -1,18 +1,23 @@
 import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import * as COMP from '../components';
-import receitaAtualContext from '../context/ReceitaAtual/ReceitaAtualContex';
+import receitaAtualContext from '../context/ReceitaAtual/ReceitaAtualContext';
 import drinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
 import { apiReceitaAtual } from '../services/ApiFood';
 import { apiRecommendDrinks } from '../services/ApiDrinks';
 
 export default function DetailFoods() {
   const { id } = useParams();
-  const { receita, setReceita } = useContext(receitaAtualContext);
+  const { receita, setReceita, label, setLabel } = useContext(receitaAtualContext);
+
   const {
     drinksRecommended,
     setDrinksRecommended } = useContext(drinksAndFoodsContext);
   const SIX = 6;
+
+  useEffect(() => {
+    setLabel('foods');
+  }, [setLabel]);
 
   useEffect(() => {
     apiReceitaAtual(id, setReceita);
@@ -43,6 +48,8 @@ export default function DetailFoods() {
         ingredients={ ingredients }
         instructions={ strInstructions }
         quantity={ quantity }
+        id={ id }
+        label={ label }
       />
       <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
         <h2>Video</h2>
@@ -67,16 +74,6 @@ export default function DetailFoods() {
             />
           </div>
         ))}
-      </div>
-      <div className="flex justify-center">
-        <button
-          data-testid="start-recipe-btn"
-          type="button"
-          className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4
-          border-b-4 border-blue-700 hover:border-blue-500 rounded fixed bottom-0"
-        >
-          Iniciar Receita
-        </button>
       </div>
     </div>);
 }

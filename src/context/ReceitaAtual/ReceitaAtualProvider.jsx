@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import ReceitaAtualContext from './ReceitaAtualContex';
+import ReceitaAtualContext from './ReceitaAtualContext';
 
 function ReceitaAtualProvider({ children }) {
   const [receita, setReceita] = useState([]);
+  const [label, setLabel] = useState('');
+  const [toggle, setToggle] = useState(false);
+
 
   return (
     <ReceitaAtualContext.Provider
       value={ {
         receita,
         setReceita,
+        label,
+        setLabel,
+        toggle,
+        setToggle,
       } }
     >
       {children}

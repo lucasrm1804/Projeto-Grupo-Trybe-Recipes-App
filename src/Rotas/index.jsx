@@ -14,6 +14,8 @@ import Profile from '../pages/Profile';
 import ExploreIngredientsDrinks from '../pages/ExploreIngredientsDrinks';
 import ExploreIngredientsFoods from '../pages/ExploreIngredientsFoods';
 import ExploreNationalities from '../pages/ExploreNationalities';
+import FoodsInProgress from '../pages/FoodsInProgress';
+import DrinksInProgress from '../pages/DrinksInProgress';
 
 export default function Rotas() {
   return (
@@ -23,10 +25,10 @@ export default function Rotas() {
         <Route exact path="/" component={ Login } />
         <Route exact path="/foods" component={ Foods } />
         <Route exact path="/drinks" component={ Drinks } />
+        <Route exact path="/foods/:id/in-progress" component={ FoodsInProgress } />
+        <Route exact path="/drinks/:id/in-progress" component={ DrinksInProgress } />
         <Route exact path="/foods/:id" component={ DetailFoods } />
         <Route exact path="/drinks/:id" component={ DetailDrinks } />
-        <Route exact path="/foods/:id/in-progress" component="" />
-        <Route exact path="/drinks/:id/in-progress" component="" />
         <Route exact path="/explore" component={ Explore } />
         <Route exact path="/explore/foods" component={ ExploreFoods } />
         <Route exact path="/explore/drinks" component={ ExploreDrinks } />
