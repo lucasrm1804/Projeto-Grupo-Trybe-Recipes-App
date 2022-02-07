@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 export default function DrinksInProgressBody(props) {
   const { strAlcoholic, ingredients } = props;
+  const { id } = useParams();
   //! função consultada no repositório do eduardo Miyazaki link: https://github.com/tryber/sd-016-a-project-recipes-app/pull/614/commits/ef0964857119695eecdc6a538141cc8445eab2b0
   const [toggle, setToggle] = useState(
     ingredients.map((ingredient) => ({
