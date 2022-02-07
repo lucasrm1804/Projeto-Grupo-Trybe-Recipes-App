@@ -51,7 +51,6 @@ export async function drinkApiDidMount(setDrinks) {
   setDrinks(drinks);
 }
 
-
 export async function apiReceitaAtual(id, setReceitaAtual) {
   const result = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then((res) => res.json());
@@ -64,6 +63,7 @@ export async function apiRecommendDrinks(setDrinksRecommended) {
     .then((res) => res.json());
   const { drinks } = result;
   setDrinksRecommended(drinks);
+}
 
 export async function apiDrinksCategory(setCategoryName) {
   const result = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list')
@@ -76,5 +76,4 @@ export async function apiFilterCategoryDrinks(setDrinks, categoryName) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${categoryName}`)
     .then((res) => res.json());
   setDrinks(result.drinks);
-
 }
