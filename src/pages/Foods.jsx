@@ -14,6 +14,7 @@ export default function Foods() {
   useEffect(() => {
     apiMealsDidMount(setMeals);
     apiMealsCategory(setCategoryName);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

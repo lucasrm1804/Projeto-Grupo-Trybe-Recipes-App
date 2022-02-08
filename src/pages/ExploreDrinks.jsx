@@ -1,7 +1,7 @@
 import React from 'react';
 import * as COMP from '../components';
 
-export default function ExploreDrinks() {
+export default function ExploreIngredientsDrinks() {
   return (
     <div>
       <div>

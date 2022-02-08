@@ -70,3 +70,31 @@ export async function apiFilterCategoryFoods(setMeals, categoryName) {
     .then((res) => res.json());
   setMeals(result.meals);
 }
+
+const ENDPOINT_RECIPE = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
+
+function requestRecipe(id) {
+  return `${ENDPOINT_RECIPE}${id}`;
+}
+
+export async function apiMealsRecipe(id, setMealsRecipe) {
+  const result = await fetch(requestRecipe(id))
+    .then((res) => res.json());
+  const { meals } = result;
+  setMealsRecipe(meals[0]);
+}
+
+export async function ingredientsMeals(setIngredientsList) {
+  const result = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?i=list')
+    .then((res) => res.json());
+
+  setIngredientsList(result.meals);
+}
+
+export async function filterByIngredient(setIngredientsList, ingredient) {
+  const result = await
+  fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`)
+    .then((res) => res.json());
+
+  setIngredientsList(result.meals);
+}

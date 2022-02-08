@@ -12,6 +12,9 @@ import Profile from '../pages/Profile';
 import ExploreIngredientsDrinks from '../pages/ExploreIngredientsDrinks';
 import ExploreIngredientsFoods from '../pages/ExploreIngredientsFoods';
 import ExploreNationalities from '../pages/ExploreNationalities';
+import Ingredients from '../pages/Ingredients';
+import FoodsIngredient from '../pages/FoodsIngredients';
+import DrinksIngredient from '../pages/DrinksIngredients';
 
 export default function Rotas() {
   return (
@@ -21,8 +24,10 @@ export default function Rotas() {
         <Route exact path="/" component={ Login } />
         <Route exact path="/foods" component={ Foods } />
         <Route exact path="/drinks" component={ Drinks } />
-        <Route exact path="/foods/:id" component="" />
-        <Route exact path="/drinks/:id" component="" />
+        <Route exact path="/explore/Foods/ingredients/:id" component={ Ingredients } />
+        <Route exact path="/explore/Drinks/ingredients/:id" component={ Ingredients } />
+        <Route path="/explore/Drinks/ingredients" component={ DrinksIngredient } />
+        <Route path="/explore/Foods/ingredients" component={ FoodsIngredient } />
         <Route exact path="/foods/:id/in-progress" component="" />
         <Route exact path="/drinks/:id/in-progress" component="" />
         <Route exact path="/explore" component={ Explore } />
