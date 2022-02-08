@@ -7,7 +7,7 @@ export default function Header(props) {
   const { label, showSearch } = props;
 
   return (
-    <div className="flex flex-row">
+    <div className="fixed bg-blue-100 p-2 top-0 w-full flex max-w-sm flex justify-around">
       <BotaoPerfil />
       <h1 data-testid="page-title">{label}</h1>
       {showSearch && <SearchButton /> }

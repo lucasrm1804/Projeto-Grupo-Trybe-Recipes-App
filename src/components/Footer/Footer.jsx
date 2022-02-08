@@ -19,7 +19,7 @@ export default function Footer() {
     <div
       data-testid="footer"
       className="
-      fixed bottom-0 w-full flex max-w-sm flex justify-around  items-end"
+      fixed bottom-0 w-full flex max-w-sm flex justify-around  items-end bg-blue-100"
     >
 
       <button

@@ -25,31 +25,37 @@ export default function Drinks() {
         {displaySearchBar && <COMP.SearchBar title="Drinks" />}
 
       </div>
-      <COMP.FilterButtonAll
-        label="Drinks"
-      />
+      <div className="p-2 mt-12 flex border-b-4 flex-wrap justify-around">
+        <COMP.FilterButtonAll
+          label="Drinks"
+        />
 
-      <div>
         {categoryName
-        && categoryName.slice(0, FIVE).map((category, index) => (
-          <COMP.FilterButton
-            key={ index }
-            categoryName={ category.strCategory }
-            label="Drinks"
-          />
-        ))}
+          && categoryName.slice(0, FIVE).map((category, index) => (
+            <COMP.FilterButton
+              key={ index }
+              categoryName={ category.strCategory }
+              label="Drinks"
+            />
+          ))}
 
       </div>
-      <div>
-        {drinks && drinks.slice(0, TWELVE).map((drink, index) => (
-          <COMP.DrinkCards
-            key={ drink.idDrink }
-            index={ index }
-            idDrink={ drink.idDrink }
-            strDrink={ drink.strDrink }
-            strDrinkThumb={ drink.strDrinkThumb }
 
-          />
+      <div className="h-54 pt-4 w-full flex flex-row flex-wrap overflow-x-scroll">
+        {drinks && drinks.slice(0, TWELVE).map((drink, index) => (
+          <div
+            className="h-54 w-40 mx-2 pl-2"
+            key={ drink.idDrink }
+          >
+            <COMP.DrinkCards
+              className="h-54 w-40 mx-2"
+              index={ index }
+              idDrink={ drink.idDrink }
+              strDrink={ drink.strDrink }
+              strDrinkThumb={ drink.strDrinkThumb }
+            />
+
+          </div>
         ))}
       </div>
 
