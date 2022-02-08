@@ -16,7 +16,7 @@ import ExploreIngredientsFoods from '../pages/ExploreIngredientsFoods';
 import ExploreNationalities from '../pages/ExploreNationalities';
 import Ingredients from '../pages/Ingredients';
 import FoodsIngredient from '../pages/FoodsIngredients';
-import DrinksIngredient from '../pages/DrinksIngredients'
+import DrinksIngredient from '../pages/DrinksIngredients';
 import FoodsInProgress from '../pages/FoodsInProgress';
 import DrinksInProgress from '../pages/DrinksInProgress';
 
