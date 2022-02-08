@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { requestMeals } from '../services/ApiFood';
-import { requestDrinks } from '../services/ApiDrinks';
-import DrinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
+import { requestMeals } from '../../services/ApiFood';
+import { requestDrinks } from '../../services/ApiDrinks';
+import DrinksAndFoodsContext from '../../context/DrinksAndFoods/DrinksAndFoodsContext';
 
 function SearchBar(props) {
   const { title } = props;

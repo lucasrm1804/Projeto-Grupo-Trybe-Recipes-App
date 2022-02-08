@@ -22,7 +22,7 @@ export async function requestMeals(searchRadioValue, searchText, setMeals, histo
     const { meals } = result;
     if (meals === null) return global.alert(SORRY);
     if (meals.length === 1) {
-      history.push(`/foods/${meals[0].idMeal}`);
+      history.push(`/meals/${meals[0].idMeal}`);
       return;
     }
     setMeals(meals);
@@ -33,7 +33,7 @@ export async function requestMeals(searchRadioValue, searchText, setMeals, histo
     const { meals } = result;
     if (meals === null) return global.alert(SORRY);
     if (meals.length === 1) {
-      history.push(`/foods/${meals[0].idMeal}`);
+      history.push(`/meals/${meals[0].idMeal}`);
       return;
     }
     setMeals(meals);
@@ -45,7 +45,7 @@ export async function requestMeals(searchRadioValue, searchText, setMeals, histo
     const { meals } = result;
     if (meals === null) return global.alert(SORRY);
     if (meals.length === 1) {
-      history.push(`/foods/${meals[0].idMeal}`);
+      history.push(`/meals/${meals[0].idMeal}`);
       return;
     }
     setMeals(meals);
@@ -97,4 +97,18 @@ export async function filterByIngredient(setIngredientsList, ingredient) {
     .then((res) => res.json());
 
   setIngredientsList(result.meals);
+}
+
+export async function apiReceitaAtual(id, setReceitaAtual) {
+  const result = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+    .then((res) => res.json());
+  const { meals } = result;
+  setReceitaAtual(meals[0]);
+}
+
+export async function apiRecommendFoods(setMealsRecommended) {
+  const result = await fetch(ENDPOINT_NAME)
+    .then((res) => res.json());
+  const { meals } = result;
+  setMealsRecommended(meals);
 }
