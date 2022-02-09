@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as COMP from '../components';
-import getSavedUser from '../services/GetLocalStorage';
+import { getSavedUser } from '../services/GetLocalStorage';
 import { saveUserInfos,
   saveMealsToken,
   savecocktailsToken,

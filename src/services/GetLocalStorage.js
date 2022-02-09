@@ -1,3 +1,3 @@
-const getSavedUser = () => localStorage.getItem('user');
+export const getSavedUser = () => localStorage.getItem('user');
 
-export default getSavedUser;
+export const getInProgress = () => JSON.parse(localStorage.getItem('inProgressRecipes'));
