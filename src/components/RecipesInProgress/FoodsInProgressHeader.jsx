@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ButtonShare from '../ButtonShare/ButtonShare';
+import ButtonFavoritar from '../ButtonFavoritar/ButtonFavoritar';
 
 export default function FoodsInProgressHeader(props) {
   const { strMeal, strMealThumb } = props;
@@ -10,19 +12,8 @@ export default function FoodsInProgressHeader(props) {
       <p data-testid="recipe-title">
         { strMeal }
       </p>
-      <button
-        type="button"
-        data-testid="share-btn"
-      >
-        Compartilhar
-      </button>
-
-      <button
-        type="button"
-        data-testid="favorite-btn"
-      >
-        Favoritar
-      </button>
+      <ButtonShare />
+      <ButtonFavoritar />
 
     </div>);
 }
