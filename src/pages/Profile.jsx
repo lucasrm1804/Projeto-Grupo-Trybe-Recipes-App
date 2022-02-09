@@ -58,7 +58,9 @@ function Profile(props) {
 }
 
 Profile.propTypes = {
-  history: PropTypes.oneOfType(PropTypes.string).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default Profile;

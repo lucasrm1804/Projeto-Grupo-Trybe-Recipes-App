@@ -35,5 +35,5 @@ DetailRecommend.propTypes = {
   recipeTitle: PropTypes.string.isRequired,
   receitaCategory: PropTypes.string.isRequired,
   recipeImg: PropTypes.string.isRequired,
-  i: PropTypes.string.isRequired,
+  i: PropTypes.number.isRequired,
 };
