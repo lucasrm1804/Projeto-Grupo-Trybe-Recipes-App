@@ -43,9 +43,10 @@ export default function DetailBody(props) {
 }
 
 DetailBody.propTypes = {
-  ingredients: PropTypes.oneOfType(PropTypes.string).isRequired,
-  quantity: PropTypes.oneOfType(PropTypes.string).isRequired,
+  ingredients: PropTypes.string.isRequired,
+  quantity: PropTypes.string.isRequired,
   instructions: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+
 };

@@ -16,15 +16,9 @@ export default function DetailDrink() {
 
   useEffect(() => {
     setLabel('drinks');
-  }, [setLabel]);
-
-  useEffect(() => {
     apiReceitaAtual(id, setReceita);
-  }, [id, setReceita]);
-
-  useEffect(() => {
     apiRecommendFoods(setMealsRecommended);
-  }, [id, setMealsRecommended]);
+  }, []);
 
   const { strDrink, strAlcoholic, strDrinkThumb, strInstructions } = receita;
 

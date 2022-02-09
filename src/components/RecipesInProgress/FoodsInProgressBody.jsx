@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { saveRecipesInProgress } from '../../services/SaveLocalStorage';
+import { getInProgress } from '../../services/GetLocalStorage';
 
 export default function FoodsInProgressBody(props) {
   const { category, ingredients } = props;
@@ -16,6 +17,15 @@ export default function FoodsInProgressBody(props) {
 
   const onChange = (data) => {
     const foodsInProgress = [];
+    const getLocalStorage = getInProgress();
+
+    if (!getLocalStorage) {
+      const INITIAL = {
+        cocktails: {},
+        meals: {},
+      };
+      saveRecipesInProgress(JSON.stringify(INITIAL));
+    }
 
     for (let i = 0; i < data.length; i += 1) {
       if (data[i].checked === true) {
@@ -25,6 +35,10 @@ export default function FoodsInProgressBody(props) {
 
     const inProgressRecipes = {
       cocktails: {
+        ...getInProgress().cocktails,
+      },
+      meals: {
+        ...getInProgress().meals,
         [id]: [...foodsInProgress],
       },
     };
@@ -69,7 +83,6 @@ export default function FoodsInProgressBody(props) {
               } }
               value={ ingredient }
               id={ ingredient[index] }
-
             />
             {ingredient }
           </label>)

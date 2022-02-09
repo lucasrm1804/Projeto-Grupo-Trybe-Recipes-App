@@ -19,6 +19,10 @@ export default function FoodsInProgress() {
   const ingredientsStr = Object.keys(receita)
     .filter((value) => value.includes('strIngredient'));
   const ingredients = ingredientsStr.map((value) => receita[value]);
+
+  if (receita.length === 0) {
+    return null;
+  }
   return (
 
     <div>
