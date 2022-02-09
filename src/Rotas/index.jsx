@@ -32,8 +32,6 @@ export default function Rotas() {
         <Route exact path="/explore/Drinks/ingredients/:id" component={ Ingredients } />
         <Route path="/explore/Drinks/ingredients" component={ DrinksIngredient } />
         <Route path="/explore/Foods/ingredients" component={ FoodsIngredient } />
-        <Route exact path="/foods/:id/in-progress" component="" />
-        <Route exact path="/drinks/:id/in-progress" component="" />
         <Route exact path="/foods/:id/in-progress" component={ FoodsInProgress } />
         <Route exact path="/drinks/:id/in-progress" component={ DrinksInProgress } />
         <Route exact path="/foods/:id" component={ DetailFoods } />
