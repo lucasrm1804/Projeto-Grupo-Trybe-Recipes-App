@@ -5,16 +5,30 @@ import FoodsInProgressBody from '../components/RecipesInProgress/FoodsInProgress
 import ReceitaAtualContext from '../context/ReceitaAtual/ReceitaAtualContext';
 import { apiReceitaAtual } from '../services/ApiFood';
 import FoodsInProgressFooter from '../components/RecipesInProgress/FoodsInProgressFooter';
+import { getInProgress } from '../services/GetLocalStorage';
+import { saveRecipesInProgress } from '../services/SaveLocalStorage';
 
 export default function FoodsInProgress() {
   const { receita, setReceita } = useContext(ReceitaAtualContext);
   const { id } = useParams();
 
   useEffect(() => {
+    const getLocalStorage = getInProgress();
+
+    if (!getLocalStorage) {
+      const INITIAL = {
+        cocktails: {},
+        meals: {},
+      };
+      saveRecipesInProgress(JSON.stringify(INITIAL));
+    }
+  }, []);
+
+  useEffect(() => {
     apiReceitaAtual(id, setReceita);
   }, [id, setReceita]);
 
-  const { strMeal, strMealThumb, category, strInstructions } = receita;
+  const { strMeal, strMealThumb, strCategory, strInstructions } = receita;
 
   const ingredientsStr = Object.keys(receita)
     .filter((value) => value.includes('strIngredient'));
@@ -33,7 +47,7 @@ export default function FoodsInProgress() {
         />
       </div>
       <FoodsInProgressBody
-        category={ category }
+        category={ strCategory }
         ingredients={ ingredients }
       />
 

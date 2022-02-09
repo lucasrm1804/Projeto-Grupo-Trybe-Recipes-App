@@ -7,24 +7,21 @@ import { getInProgress } from '../../services/GetLocalStorage';
 export default function DrinksInProgressBody(props) {
   const { strAlcoholic, ingredients } = props;
   const { id } = useParams();
+  const checkedIngredient = getInProgress().cocktails;
+
   //! função consultada no repositório do eduardo Miyazaki link: https://github.com/tryber/sd-016-a-project-recipes-app/pull/614/commits/ef0964857119695eecdc6a538141cc8445eab2b0
   const [toggle, setToggle] = useState(
     ingredients.map((ingredient, index) => ({
-      ingredient, checked: false, index,
+      ingredient,
+      checked: checkedIngredient[id]
+        ? (checkedIngredient[id].some((elem) => elem === index))
+        : false,
+      index,
     })),
   );
 
   const onChange = (data) => {
     const drinksInProgress = [];
-    const getLocalStorage = getInProgress();
-
-    if (!getLocalStorage) {
-      const INITIAL = {
-        cocktails: {},
-        meals: {},
-      };
-      saveRecipesInProgress(JSON.stringify(INITIAL));
-    }
 
     for (let i = 0; i < data.length; i += 1) {
       if (data[i].checked === true) {
@@ -59,12 +56,6 @@ export default function DrinksInProgressBody(props) {
     });
   };
 
-  const isChecked = () => {
-    const test = getInProgress().cocktails;
-    console.log(test);
-  };
-
-  isChecked();
   return (
     <div>
       <h3 data-testid="recipe-category">
@@ -77,7 +68,7 @@ export default function DrinksInProgressBody(props) {
         ingredient && (
           <label
             htmlFor={ ingredient[index] }
-            className={ toggle[index].checked && 'line-through' }
+            className={ toggle[index].checked ? 'line-through' : undefined }
             key={ index }
             data-testid={ `${index}-ingredient-step` }
           >

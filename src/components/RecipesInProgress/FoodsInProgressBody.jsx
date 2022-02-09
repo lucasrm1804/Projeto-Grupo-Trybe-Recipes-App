@@ -7,25 +7,21 @@ import { getInProgress } from '../../services/GetLocalStorage';
 export default function FoodsInProgressBody(props) {
   const { category, ingredients } = props;
   const { id } = useParams();
+  const checkedIngredient = getInProgress().meals;
 
   //! função consultada no repositório do eduardo Miyazaki link: https://github.com/tryber/sd-016-a-project-recipes-app/pull/614/commits/ef0964857119695eecdc6a538141cc8445eab2b0
   const [toggle, setToggle] = useState(
     ingredients.map((ingredient, index) => ({
-      ingredient, checked: false, index,
+      ingredient,
+      checked: checkedIngredient[id]
+        ? (checkedIngredient[id].some((elem) => elem === index))
+        : false,
+      index,
     })),
   );
 
   const onChange = (data) => {
     const foodsInProgress = [];
-    const getLocalStorage = getInProgress();
-
-    if (!getLocalStorage) {
-      const INITIAL = {
-        cocktails: {},
-        meals: {},
-      };
-      saveRecipesInProgress(JSON.stringify(INITIAL));
-    }
 
     for (let i = 0; i < data.length; i += 1) {
       if (data[i].checked === true) {
@@ -59,6 +55,7 @@ export default function FoodsInProgressBody(props) {
       return newToggle;
     });
   };
+
   return (
     <div>
       <h3 data-testid="recipe-category">
@@ -72,7 +69,7 @@ export default function FoodsInProgressBody(props) {
             htmlFor={ ingredient[index] }
             key={ index }
             data-testid={ `${index}-ingredient-step` }
-            className={ toggle[index].checked && 'line-through' }
+            className={ toggle[index].checked ? 'line-through' : undefined }
 
           >
             <input

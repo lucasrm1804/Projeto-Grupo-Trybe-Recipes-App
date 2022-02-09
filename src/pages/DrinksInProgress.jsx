@@ -7,10 +7,24 @@ from '../components/RecipesInProgress/DrinksInProgressHeader';
 import DrinksInProgressBody from '../components/RecipesInProgress/DrinksInProgressBody';
 import DrinksInProgressFooter
 from '../components/RecipesInProgress/DrinksInProgressFooter';
+import { saveRecipesInProgress } from '../services/SaveLocalStorage';
+import { getInProgress } from '../services/GetLocalStorage';
 
 export default function DrinksInProgress() {
   const { receita, setReceita } = useContext(ReceitaAtualContext);
   const { id } = useParams();
+
+  useEffect(() => {
+    const getLocalStorage = getInProgress();
+
+    if (!getLocalStorage) {
+      const INITIAL = {
+        cocktails: {},
+        meals: {},
+      };
+      saveRecipesInProgress(JSON.stringify(INITIAL));
+    }
+  }, []);
 
   useEffect(() => {
     apiReceitaAtual(id, setReceita);
