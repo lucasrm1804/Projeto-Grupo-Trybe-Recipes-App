@@ -25,7 +25,10 @@ export default function Drinks() {
         {displaySearchBar && <COMP.SearchBar title="Drinks" />}
 
       </div>
-      <div className="p-2 mt-12 flex border-b-4 flex-wrap justify-around">
+      <div
+        className="p-2 mt-12 flex border-b flex-wrap items-start shadow-2xl
+        justify-between"
+      >
         <COMP.FilterButtonAll
           label="Drinks"
         />

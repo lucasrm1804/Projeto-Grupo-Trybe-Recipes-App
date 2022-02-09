@@ -13,3 +13,11 @@
   width: 360px;
 }
 
+.miseEnPlace {
+  background-image: url('https://images.unsplash.com/photo-1583418007992-a8e33a92e7ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+  background-size: 360px 640px;
+  height: 640px;
+  margin: 0;
+  width: 360px;
+}
+

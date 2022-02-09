@@ -8,8 +8,8 @@ function ProfileButton(props) {
       data-testid={ testId }
       type="button"
       onClick={ () => handleClick() }
-      className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4
-       rounded inline-flex items-center"
+      className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-4 px-6
+       rounded inline-flex items-center mt-8"
     >
       { label }
     </button>
