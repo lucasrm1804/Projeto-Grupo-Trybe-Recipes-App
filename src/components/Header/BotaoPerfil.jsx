@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import profileIcon from '../images/profileIcon.svg';
+import profileIcon from '../../images/profileIcon.svg';
 
 export default function BotaoPerfil() {
   const history = useHistory();

@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import DrinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
-import { apiMealsDidMount } from '../services/ApiFood';
-import { drinkApiDidMount } from '../services/ApiDrinks';
+import React, { useContext } from 'react';
+import DrinksAndFoodsContext from '../../context/DrinksAndFoods/DrinksAndFoodsContext';
+import { drinkApiDidMount } from '../../services/ApiDrinks';
+import { apiMealsDidMount } from '../../services/ApiFood';
 
 export default function FilterButtonAll(props) {
   const { setMeals, setDrinks } = useContext(DrinksAndFoodsContext);

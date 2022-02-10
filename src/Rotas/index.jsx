@@ -2,10 +2,12 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Login from '../pages/Login';
 import Drinks from '../pages/Drinks';
+import DetailDrinks from '../pages/DetailDrink';
 import Explore from '../pages/Explore';
 import ExploreFoods from '../pages/ExploreFoods';
 import ExploreDrinks from '../pages/ExploreDrinks';
 import Foods from '../pages/Foods';
+import DetailFoods from '../pages/DetailFood';
 import DoneRecipes from '../pages/DoneRecipes';
 import FavoriteRecipes from '../pages/FavoriteRecipes';
 import Profile from '../pages/Profile';
@@ -16,6 +18,8 @@ import Ingredients from '../pages/Ingredients';
 import FoodsIngredient from '../pages/FoodsIngredients';
 import DrinksIngredient from '../pages/DrinksIngredients';
 import NotFound from '../pages/NotFound';
+import FoodsInProgress from '../pages/FoodsInProgress';
+import DrinksInProgress from '../pages/DrinksInProgress';
 
 export default function Rotas() {
   return (
@@ -29,8 +33,10 @@ export default function Rotas() {
         <Route exact path="/explore/Drinks/ingredients/:id" component={ Ingredients } />
         <Route path="/explore/Drinks/ingredients" component={ DrinksIngredient } />
         <Route path="/explore/Foods/ingredients" component={ FoodsIngredient } />
-        <Route exact path="/foods/:id/in-progress" component="" />
-        <Route exact path="/drinks/:id/in-progress" component="" />
+        <Route exact path="/foods/:id/in-progress" component={ FoodsInProgress } />
+        <Route exact path="/drinks/:id/in-progress" component={ DrinksInProgress } />
+        <Route exact path="/foods/:id" component={ DetailFoods } />
+        <Route exact path="/drinks/:id" component={ DetailDrinks } />
         <Route exact path="/explore" component={ Explore } />
         <Route exact path="/explore/foods" component={ ExploreFoods } />
         <Route exact path="/explore/drinks" component={ ExploreDrinks } />
