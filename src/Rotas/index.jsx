@@ -15,6 +15,7 @@ import ExploreNationalities from '../pages/ExploreNationalities';
 import Ingredients from '../pages/Ingredients';
 import FoodsIngredient from '../pages/FoodsIngredients';
 import DrinksIngredient from '../pages/DrinksIngredients';
+import NotFound from '../pages/NotFound';
 
 export default function Rotas() {
   return (
@@ -51,6 +52,7 @@ export default function Rotas() {
         <Route exact path="/profile" component={ Profile } />
         <Route exact path="/done-recipes" component={ DoneRecipes } />
         <Route exact path="/favorite-recipes" component={ FavoriteRecipes } />
+        <Route path="/explore/Drinks/nationalities" component={ NotFound } />
 
       </Switch>
 

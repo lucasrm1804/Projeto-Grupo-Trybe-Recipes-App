@@ -14,6 +14,7 @@ export default function Drinks() {
   useEffect(() => {
     drinkApiDidMount(setDrinks);
     apiDrinksCategory(setCategoryName);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
