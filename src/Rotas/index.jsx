@@ -17,6 +17,7 @@ import ExploreNationalities from '../pages/ExploreNationalities';
 import Ingredients from '../pages/Ingredients';
 import FoodsIngredient from '../pages/FoodsIngredients';
 import DrinksIngredient from '../pages/DrinksIngredients';
+import NotFound from '../pages/NotFound';
 import FoodsInProgress from '../pages/FoodsInProgress';
 import DrinksInProgress from '../pages/DrinksInProgress';
 
@@ -32,8 +33,6 @@ export default function Rotas() {
         <Route exact path="/explore/Drinks/ingredients/:id" component={ Ingredients } />
         <Route path="/explore/Drinks/ingredients" component={ DrinksIngredient } />
         <Route path="/explore/Foods/ingredients" component={ FoodsIngredient } />
-        <Route exact path="/foods/:id/in-progress" component="" />
-        <Route exact path="/drinks/:id/in-progress" component="" />
         <Route exact path="/foods/:id/in-progress" component={ FoodsInProgress } />
         <Route exact path="/drinks/:id/in-progress" component={ DrinksInProgress } />
         <Route exact path="/foods/:id" component={ DetailFoods } />
@@ -59,6 +58,7 @@ export default function Rotas() {
         <Route exact path="/profile" component={ Profile } />
         <Route exact path="/done-recipes" component={ DoneRecipes } />
         <Route exact path="/favorite-recipes" component={ FavoriteRecipes } />
+        <Route path="/explore/Drinks/nationalities" component={ NotFound } />
 
       </Switch>
 

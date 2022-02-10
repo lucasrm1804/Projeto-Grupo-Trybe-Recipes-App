@@ -55,7 +55,6 @@ export async function requestMeals(searchRadioValue, searchText, setMeals, histo
 export async function apiMealsDidMount(setMeals) {
   const result = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
     .then((res) => res.json());
-  // const { meals } = result;
   setMeals(result.meals);
 }
 
@@ -99,6 +98,19 @@ export async function filterByIngredient(setIngredientsList, ingredient) {
   setIngredientsList(result.meals);
 }
 
+export async function getDropDownValues(setDropDownOptions) {
+  const result = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?a=list')
+    .then((res) => res.json());
+
+  setDropDownOptions(result.meals);
+}
+
+export async function filterByArea(setArea, dropDownValue) {
+  const result = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${dropDownValue}`)
+    .then((res) => res.json());
+
+  setArea(result.meals);
+}
 export async function apiReceitaAtual(id, setReceitaAtual) {
   const result = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then((res) => res.json());
