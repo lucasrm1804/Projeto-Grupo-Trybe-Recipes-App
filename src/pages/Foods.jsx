@@ -50,7 +50,6 @@ export default function Foods() {
             className="h-54 w-40 mx-2 pl-2"
             key={ food.idMeal }
           >
-
             <COMP.FoodCards
               className="h-54 w-40 mx-2"
               index={ index }

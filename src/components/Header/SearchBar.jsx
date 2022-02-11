@@ -53,7 +53,6 @@ function SearchBar(props) {
               data-testid="ingredient-search-radio"
               name="search-bar"
               value="Ingrediente"
-              className="appearance-none"
 
             />
             Ingrediente
@@ -70,7 +69,6 @@ function SearchBar(props) {
               data-testid="name-search-radio"
               name="search-bar"
               value="Nome"
-              className="appearance-none"
             />
             Nome
           </label>
@@ -86,7 +84,6 @@ function SearchBar(props) {
               data-testid="first-letter-search-radio"
               name="search-bar"
               value="Primeira Letra"
-              className="appearance-none"
             />
             Primeira Letra
           </label>

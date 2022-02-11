@@ -5,6 +5,7 @@ import receitaAtualContext from '../context/ReceitaAtual/ReceitaAtualContext';
 import drinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
 import { apiReceitaAtual } from '../services/ApiFood';
 import { apiRecommendDrinks } from '../services/ApiDrinks';
+import Loading from '../components/Loading';
 
 export default function DetailFoods() {
   const { id } = useParams();
@@ -15,9 +16,14 @@ export default function DetailFoods() {
     setDrinksRecommended } = useContext(drinksAndFoodsContext);
   const SIX = 6;
 
+  const funcao = async () => {
+    await apiReceitaAtual(id, setReceita)
+      .catch(() => <Loading />);
+  };
+
   useEffect(() => {
     setLabel('foods');
-    apiReceitaAtual(id, setReceita);
+    funcao();
     apiRecommendDrinks(setDrinksRecommended);
   }, []);
 

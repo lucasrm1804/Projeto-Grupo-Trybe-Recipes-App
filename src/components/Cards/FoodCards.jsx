@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 
 export default function FoodCards(props) {
   const { index, strMeal, strMealThumb, idMeal } = props;
+  const foods = 'foods';
   return (
     <div
       className="flex flex-col flex-nowrap justify-around items-center w-40 h-54"
       data-testid={ `${index}-recipe-card` }
     >
-      <Link to={ `/foods/${idMeal}` }>
+      <Link to={ `/${foods}/${idMeal}` }>
         <img
           className="object-contain h-48 w-full"
           src={ strMealThumb }
