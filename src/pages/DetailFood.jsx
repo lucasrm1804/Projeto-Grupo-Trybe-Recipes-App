@@ -17,15 +17,9 @@ export default function DetailFoods() {
 
   useEffect(() => {
     setLabel('foods');
-  }, [setLabel]);
-
-  useEffect(() => {
     apiReceitaAtual(id, setReceita);
-  }, [id, setReceita]);
-
-  useEffect(() => {
     apiRecommendDrinks(setDrinksRecommended);
-  }, [id, setDrinksRecommended]);
+  }, []);
 
   const { strMeal, strCategory, strMealThumb, strInstructions, strYoutube } = receita;
 

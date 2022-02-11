@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as COMP from '../components';
-import getSavedUser from '../services/GetLocalStorage';
+import { getSavedUser } from '../services/GetLocalStorage';
 import { saveUserInfos,
   saveMealsToken,
   savecocktailsToken,
@@ -58,7 +58,9 @@ function Profile(props) {
 }
 
 Profile.propTypes = {
-  history: PropTypes.oneOfType(PropTypes.string).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default Profile;

@@ -1,24 +1,48 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import FoodsInProgressHeader from '../components/RecipesInProgress/FoodsInProgressHeader';
 import FoodsInProgressBody from '../components/RecipesInProgress/FoodsInProgressBody';
 import ReceitaAtualContext from '../context/ReceitaAtual/ReceitaAtualContext';
 import { apiReceitaAtual } from '../services/ApiFood';
 import FoodsInProgressFooter from '../components/RecipesInProgress/FoodsInProgressFooter';
+import { getInProgress } from '../services/GetLocalStorage';
+import { saveRecipesInProgress } from '../services/SaveLocalStorage';
 
 export default function FoodsInProgress() {
   const { receita, setReceita } = useContext(ReceitaAtualContext);
+  const [disabled] = useState(true);
+  const [label] = useState('foods');
   const { id } = useParams();
 
   useEffect(() => {
-    apiReceitaAtual(id, setReceita);
-  }, [id, setReceita]);
+    const getLocalStorage = getInProgress();
 
-  const { strMeal, strMealThumb, category, strInstructions } = receita;
+    if (!getLocalStorage) {
+      const INITIAL = {
+        cocktails: {},
+        meals: {},
+      };
+      saveRecipesInProgress(JSON.stringify(INITIAL));
+    }
+
+    apiReceitaAtual(id, setReceita);
+  }, []);
+
+  const {
+    strMeal,
+    strMealThumb,
+    strCategory,
+    strInstructions,
+    idMeal,
+    strArea } = receita;
 
   const ingredientsStr = Object.keys(receita)
     .filter((value) => value.includes('strIngredient'));
   const ingredients = ingredientsStr.map((value) => receita[value]);
+
+  if (receita.length === 0) {
+    return null;
+  }
   return (
 
     <div>
@@ -26,10 +50,15 @@ export default function FoodsInProgress() {
         <FoodsInProgressHeader
           strMeal={ strMeal }
           strMealThumb={ strMealThumb }
+          idMeal={ idMeal }
+          label={ label }
+          category={ strCategory }
+          nationality={ strArea }
+
         />
       </div>
       <FoodsInProgressBody
-        category={ category }
+        category={ strCategory }
         ingredients={ ingredients }
       />
 
@@ -38,6 +67,8 @@ export default function FoodsInProgress() {
       <div>
         <FoodsInProgressFooter
           strInstructions={ strInstructions }
+          disabled={ disabled }
+          ingredients={ ingredients }
         />
       </div>
     </div>

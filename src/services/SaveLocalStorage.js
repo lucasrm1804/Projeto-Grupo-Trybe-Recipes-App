@@ -6,3 +6,9 @@ export const savecocktailsToken = (num) => localStorage.setItem('cocktailsToken'
 
 export const saveRecipesInProgress = (info) => localStorage
   .setItem('inProgressRecipes', info);
+
+export const saveFavoriteFoods = (info) => localStorage
+  .setItem('favoriteRecipes', JSON.stringify(info));
+
+export const saveFavoriteDrinks = (info) => localStorage
+  .setItem('favoriteRecipes', JSON.stringify(info));
