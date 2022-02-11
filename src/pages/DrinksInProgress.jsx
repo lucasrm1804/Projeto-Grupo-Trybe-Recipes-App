@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReceitaAtualContext from '../context/ReceitaAtual/ReceitaAtualContext';
 import { apiReceitaAtual } from '../services/ApiDrinks';
@@ -12,7 +12,9 @@ import { getInProgress } from '../services/GetLocalStorage';
 
 export default function DrinksInProgress() {
   const { receita, setReceita } = useContext(ReceitaAtualContext);
+  const [disabled] = useState(true);
   const { id } = useParams();
+  const [label] = useState('drinks');
 
   useEffect(() => {
     const getLocalStorage = getInProgress();
@@ -30,8 +32,14 @@ export default function DrinksInProgress() {
     apiReceitaAtual(id, setReceita);
   }, [id, setReceita]);
 
-  const { strDrink, strAlcoholic, strDrinkThumb, strInstructions } = receita;
-
+  const {
+    strDrink,
+    strAlcoholic,
+    strDrinkThumb,
+    strInstructions,
+    strCategory,
+    idDrink,
+  } = receita;
   const ingredientsStr = Object.keys(receita)
     .filter((value) => value.includes('strIngredient'));
   const ingredients = ingredientsStr.map((value) => receita[value]);
@@ -44,6 +52,10 @@ export default function DrinksInProgress() {
       <DrinksInProgressHeader
         strDrink={ strDrink }
         strDrinkThumb={ strDrinkThumb }
+        label={ label }
+        category={ strCategory }
+        idDrink={ idDrink }
+        strAlcoholic={ strAlcoholic }
       />
 
       <DrinksInProgressBody
@@ -53,6 +65,7 @@ export default function DrinksInProgress() {
 
       <DrinksInProgressFooter
         strInstructions={ strInstructions }
+        disabled={ disabled }
       />
 
     </div>
