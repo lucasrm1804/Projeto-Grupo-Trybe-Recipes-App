@@ -4,7 +4,8 @@ import { Redirect } from 'react-router-dom';
 
 export default function DrinksInProgressFooter(props) {
   const [redirect, setRedirect] = useState(false);
-  const { strInstructions, disabled } = props;
+  const [disabled] = useState(false);
+  const { strInstructions } = props;
 
   return (
     <div>
@@ -29,5 +30,4 @@ export default function DrinksInProgressFooter(props) {
 }
 DrinksInProgressFooter.propTypes = {
   strInstructions: PropTypes.string.isRequired,
-  disabled: PropTypes.bool.isRequired,
 };

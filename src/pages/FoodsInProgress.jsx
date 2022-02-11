@@ -68,6 +68,7 @@ export default function FoodsInProgress() {
         <FoodsInProgressFooter
           strInstructions={ strInstructions }
           disabled={ disabled }
+          ingredients={ ingredients }
         />
       </div>
     </div>
