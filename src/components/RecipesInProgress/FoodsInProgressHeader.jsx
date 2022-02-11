@@ -30,6 +30,6 @@ FoodsInProgressHeader.propTypes = {
   strMealThumb: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  nationality: PropTypes.arrayOf(PropTypes.string).isRequired,
+  nationality: PropTypes.string.isRequired,
   idMeal: PropTypes.string.isRequired,
 };
