@@ -25,31 +25,41 @@ export default function Foods() {
         {displaySearchBar && <COMP.SearchBar title="Foods" />}
 
       </div>
-      <div>
+      <div
+        className="p-2 mt-12 flex border-b flex-wrap items-start shadow-2xl
+        justify-between"
+      >
         <COMP.FilterButtonAll
           label="Foods"
         />
 
         {categoryName
-        && categoryName.slice(0, FIVE).map((category, index) => (
-          <COMP.FilterButton
-            key={ index }
-            categoryName={ category.strCategory }
-            label="Foods"
-          />
-        ))}
+          && categoryName.slice(0, FIVE).map((category, index) => (
+            <COMP.FilterButton
+              key={ index }
+              categoryName={ category.strCategory }
+              label="Foods"
+            />
+          ))}
 
       </div>
 
-      <div>
+      <div className="h-54 pt-4 w-full flex flex-row flex-wrap overflow-x-scroll">
         {meals && meals.slice(0, TWELVE).map((food, index) => (
-          <COMP.FoodCards
+          <div
+            className="h-54 w-40 mx-2 pl-2"
             key={ food.idMeal }
-            index={ index }
-            idMeal={ food.idMeal }
-            strMeal={ food.strMeal }
-            strMealThumb={ food.strMealThumb }
-          />
+          >
+
+            <COMP.FoodCards
+              className="h-54 w-40 mx-2"
+              index={ index }
+              idMeal={ food.idMeal }
+              strMeal={ food.strMeal }
+              strMealThumb={ food.strMealThumb }
+            />
+
+          </div>
         ))}
       </div>
 

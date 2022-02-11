@@ -12,7 +12,7 @@ function LoginButton(props) {
       className={ isDisabled
         ? `bg-blue-500 text-white font-bold w-28 h-12 rounded opacity-50
         cursor-not-allowed`
-        : 'bg-blue-500 hover:bg-blue-700 text-white font-bold w-28 h-12 rounded' }
+        : 'bg-blue-500 hover:bg-blue-700 text-white font-bold w-28 h-12 rounded mt-8' }
     >
       { label }
     </button>

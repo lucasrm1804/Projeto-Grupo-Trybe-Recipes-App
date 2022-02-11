@@ -3,7 +3,7 @@ import * as COMP from '../components';
 
 export default function ExploreIngredientsDrinks() {
   return (
-    <div>
+    <div className="w-full h-auto mt-20">
       <div>
         <COMP.Header label="Explore Foods" />
       </div>
