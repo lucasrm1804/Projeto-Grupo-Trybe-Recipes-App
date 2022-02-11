@@ -22,7 +22,7 @@ export async function requestMeals(searchRadioValue, searchText, setMeals, histo
     const { meals } = result;
     if (meals === null) return global.alert(SORRY);
     if (meals.length === 1) {
-      history.push(`/meals/${meals[0].idMeal}`);
+      history.push(`/foods/${meals[0].idMeal}`);
       return;
     }
     setMeals(meals);
@@ -33,7 +33,7 @@ export async function requestMeals(searchRadioValue, searchText, setMeals, histo
     const { meals } = result;
     if (meals === null) return global.alert(SORRY);
     if (meals.length === 1) {
-      history.push(`/meals/${meals[0].idMeal}`);
+      history.push(`/foods/${meals[0].idMeal}`);
       return;
     }
     setMeals(meals);
@@ -45,7 +45,7 @@ export async function requestMeals(searchRadioValue, searchText, setMeals, histo
     const { meals } = result;
     if (meals === null) return global.alert(SORRY);
     if (meals.length === 1) {
-      history.push(`/meals/${meals[0].idMeal}`);
+      history.push(`/foods/${meals[0].idMeal}`);
       return;
     }
     setMeals(meals);

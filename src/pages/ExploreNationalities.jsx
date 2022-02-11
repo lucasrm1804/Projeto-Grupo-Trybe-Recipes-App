@@ -23,8 +23,8 @@ export default function ExploreNationalities() {
 
   return (
     <>
-      <COMP.Header title="Explorar Nacionalidade" hasSearch />
-      <div>
+      <COMP.Header label="Explore Nationalities" showSearch />
+      <div className="mt-20">
         <select
           data-testid="explore-by-nationality-dropdown"
           onChange={ handleOnChange }
