@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonFavoritar from '../ButtonFavoritar/ButtonFavoritar';
+import ButtonFavoriteDrinks from '../ButtonFavoritar/ButtonFavoriteDrinks';
 import ButtonShare from '../ButtonShare/ButtonShare';
 
 export default function DrinksInProgressHeader(props) {
-  const { strDrinkThumb, strDrink } = props;
+  const { strDrinkThumb, strDrink, label, category, idDrink, strAlcoholic } = props;
   return (
     <div>
       <img src={ strDrinkThumb } alt={ strDrink } data-testid="recipe-photo" />
@@ -12,7 +12,14 @@ export default function DrinksInProgressHeader(props) {
         { strDrink }
       </p>
       <ButtonShare />
-      <ButtonFavoritar />
+      <ButtonFavoriteDrinks
+        strDrinkThumb={ strDrinkThumb }
+        strDrink={ strDrink }
+        labelDrink={ label }
+        categoryDrink={ category }
+        idDrink={ idDrink }
+        strAlcoholic={ strAlcoholic }
+      />
     </div>
 
   );
@@ -21,4 +28,8 @@ export default function DrinksInProgressHeader(props) {
 DrinksInProgressHeader.propTypes = {
   strDrink: PropTypes.string.isRequired,
   strDrinkThumb: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  idDrink: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  strAlcoholic: PropTypes.string.isRequired,
 };

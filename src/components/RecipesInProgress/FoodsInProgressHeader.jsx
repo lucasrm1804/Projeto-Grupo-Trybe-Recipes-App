@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonShare from '../ButtonShare/ButtonShare';
-import ButtonFavoritar from '../ButtonFavoritar/ButtonFavoritar';
+import ButtonFavoriteFoods from '../ButtonFavoritar/ButtonFavoriteFoods';
 
 export default function FoodsInProgressHeader(props) {
-  const { strMeal, strMealThumb } = props;
+  const { strMeal, strMealThumb, label, category, nationality, idMeal } = props;
 
   return (
     <div>
@@ -13,7 +13,14 @@ export default function FoodsInProgressHeader(props) {
         { strMeal }
       </p>
       <ButtonShare />
-      <ButtonFavoritar />
+      <ButtonFavoriteFoods
+        strMeal={ strMeal }
+        strMealThumb={ strMealThumb }
+        labelFood={ label }
+        categoryFood={ category }
+        nationality={ nationality }
+        idMeal={ idMeal }
+      />
 
     </div>);
 }
@@ -21,4 +28,8 @@ export default function FoodsInProgressHeader(props) {
 FoodsInProgressHeader.propTypes = {
   strMeal: PropTypes.string.isRequired,
   strMealThumb: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  nationality: PropTypes.arrayOf(PropTypes.string).isRequired,
+  idMeal: PropTypes.string.isRequired,
 };
