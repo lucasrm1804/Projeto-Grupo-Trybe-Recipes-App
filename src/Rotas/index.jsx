@@ -20,6 +20,8 @@ import DrinksIngredient from '../pages/DrinksIngredients';
 import NotFound from '../pages/NotFound';
 import FoodsInProgress from '../pages/FoodsInProgress';
 import DrinksInProgress from '../pages/DrinksInProgress';
+import FoodRecipe from '../pages/FoodRecipe';
+import DrinkRecipe from '../pages/DinkInRecipe';
 
 export default function Rotas() {
   return (
@@ -59,6 +61,8 @@ export default function Rotas() {
         <Route exact path="/done-recipes" component={ DoneRecipes } />
         <Route exact path="/favorite-recipes" component={ FavoriteRecipes } />
         <Route path="/explore/Drinks/nationalities" component={ NotFound } />
+        <Route path="/Drinks/:id" component={ DrinkRecipe } />
+        <Route path="/Foods/:id" component={ FoodRecipe } />
 
       </Switch>
 
