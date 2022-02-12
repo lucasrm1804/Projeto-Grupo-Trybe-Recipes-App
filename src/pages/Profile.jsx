@@ -2,19 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as COMP from '../components';
 import { getSavedUser } from '../services/GetLocalStorage';
-import { saveUserInfos,
-  saveMealsToken,
-  savecocktailsToken,
-} from '../services/SaveLocalStorage';
 
 function Profile(props) {
   const { history } = props;
   const email = JSON.parse(getSavedUser());
 
   const handleClick = () => {
-    saveUserInfos('');
-    saveMealsToken('');
-    savecocktailsToken('');
+    localStorage.clear();
     history.push('/');
   };
 

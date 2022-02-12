@@ -9,7 +9,7 @@ import Loading from '../components/Loading';
 
 export default function DetailFoods() {
   const { id } = useParams();
-  const { receita, setReceita, label, setLabel } = useContext(receitaAtualContext);
+  const { receita, setReceita, setLabel } = useContext(receitaAtualContext);
 
   const {
     drinksRecommended,
@@ -52,7 +52,7 @@ export default function DetailFoods() {
         instructions={ strInstructions }
         quantity={ quantity }
         id={ id }
-        label={ label }
+        label="foods"
       />
       <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
         <h2>Video</h2>
