@@ -25,6 +25,7 @@ export default function DetailFoods() {
     setLabel('foods');
     funcao();
     apiRecommendDrinks(setDrinksRecommended);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { strMeal, strCategory, strMealThumb, strInstructions, strYoutube } = receita;
@@ -38,11 +39,13 @@ export default function DetailFoods() {
   const quantity = quantityStr.map((value) => receita[value]);
 
   return (
-    <div>
+    <div className="h-auto">
       <COMP.DetailTop
         recipeTitle={ strMeal }
         receitaCategory={ strCategory }
         recipeImg={ strMealThumb }
+        label="foods"
+        receita={ receita }
       />
       <COMP.DetailBody
         ingredients={ ingredients }

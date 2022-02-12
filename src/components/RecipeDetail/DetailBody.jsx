@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function DetailBody(props) {
   const { ingredients, instructions, quantity, id, label } = props;
-  const [redirect, setRedirect] = useState(false);
+  // const [redirect, setRedirect] = useState(false);
   return (
     <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
       <h3 className="font-bold">Ingredients</h3>
@@ -25,18 +25,19 @@ export default function DetailBody(props) {
       <h3 className="font-bold">Instructions.</h3>
       <p data-testid="instructions">{instructions}</p>
 
-      <div className="flex justify-center">
-        <button
-          data-testid="start-recipe-btn"
-          type="button"
-          className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4
-          border-b-4 border-blue-700 hover:border-blue-500 rounded fixed bottom-0"
-          onClick={ () => setRedirect(true) }
-        >
-          Iniciar Receita
-        </button>
-      </div>
-      {redirect && <Redirect to={ `/${label}/${id}/in-progress` } /> }
+      <Link to={ `/${label}/${id}/in-progress` }>
+        <div data-testid="start-recipe-btn" className="flex justify-center">
+          <button
+            type="button"
+            className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4
+            border-b-4 border-blue-700 hover:border-blue-500 rounded fixed bottom-0"
+          >
+            Iniciar Receita
+          </button>
+        </div>
+      </Link>
+
+      {/* {redirect && <Redirect to={ `/${label}/${id}/in-progress` } /> } */}
     </div>
 
   );

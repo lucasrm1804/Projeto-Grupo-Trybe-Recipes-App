@@ -5,6 +5,7 @@ import receitaAtualContext from '../context/ReceitaAtual/ReceitaAtualContext';
 import drinksAndFoodsContext from '../context/DrinksAndFoods/DrinksAndFoodsContext';
 import { apiReceitaAtual } from '../services/ApiDrinks';
 import { apiRecommendFoods } from '../services/ApiFood';
+import Loading from '../components/Loading';
 
 export default function DetailDrink() {
   const { id } = useParams();
@@ -14,10 +15,16 @@ export default function DetailDrink() {
     setMealsRecommended } = useContext(drinksAndFoodsContext);
   const SIX = 6;
 
+  const funcao = async () => {
+    await apiReceitaAtual(id, setReceita)
+      .catch(() => <Loading />);
+  };
+
   useEffect(() => {
     setLabel('drinks');
-    apiReceitaAtual(id, setReceita);
+    funcao();
     apiRecommendFoods(setMealsRecommended);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { strDrink, strAlcoholic, strDrinkThumb, strInstructions } = receita;
@@ -36,6 +43,8 @@ export default function DetailDrink() {
         recipeTitle={ strDrink }
         receitaCategory={ strAlcoholic }
         recipeImg={ strDrinkThumb }
+        label="drinks"
+        receita={ receita }
       />
       <COMP.DetailBody
         ingredients={ ingredients }

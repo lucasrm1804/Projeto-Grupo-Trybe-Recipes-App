@@ -7,12 +7,18 @@ import { apiReceitaAtual } from '../services/ApiFood';
 import FoodsInProgressFooter from '../components/RecipesInProgress/FoodsInProgressFooter';
 import { getInProgress } from '../services/GetLocalStorage';
 import { saveRecipesInProgress } from '../services/SaveLocalStorage';
+import Loading from '../components/Loading';
 
 export default function FoodsInProgress() {
   const { receita, setReceita } = useContext(ReceitaAtualContext);
   const [disabled] = useState(true);
   const [label] = useState('foods');
   const { id } = useParams();
+
+  const funcao = async () => {
+    await apiReceitaAtual(id, setReceita)
+      .catch(() => <Loading />);
+  };
 
   useEffect(() => {
     const getLocalStorage = getInProgress();
@@ -24,8 +30,10 @@ export default function FoodsInProgress() {
       };
       saveRecipesInProgress(JSON.stringify(INITIAL));
     }
+  }, []);
 
-    apiReceitaAtual(id, setReceita);
+  useEffect(() => {
+    funcao();
   }, []);
 
   const {
