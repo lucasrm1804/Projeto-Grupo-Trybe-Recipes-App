@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ButtonShare from '../ButtonShare/ButtonShare';
+import ButtonFavoriteFoods from '../ButtonFavoritar/ButtonFavoriteFoods';
 
 export default function FoodsInProgressHeader(props) {
-  const { strMeal, strMealThumb } = props;
+  const { strMeal, strMealThumb, label, category, nationality, idMeal } = props;
 
   return (
     <div>
@@ -10,19 +12,15 @@ export default function FoodsInProgressHeader(props) {
       <p data-testid="recipe-title">
         { strMeal }
       </p>
-      <button
-        type="button"
-        data-testid="share-btn"
-      >
-        Compartilhar
-      </button>
-
-      <button
-        type="button"
-        data-testid="favorite-btn"
-      >
-        Favoritar
-      </button>
+      <ButtonShare />
+      <ButtonFavoriteFoods
+        strMeal={ strMeal }
+        strMealThumb={ strMealThumb }
+        labelFood={ label }
+        categoryFood={ category }
+        nationality={ nationality }
+        idMeal={ idMeal }
+      />
 
     </div>);
 }
@@ -30,4 +28,8 @@ export default function FoodsInProgressHeader(props) {
 FoodsInProgressHeader.propTypes = {
   strMeal: PropTypes.string.isRequired,
   strMealThumb: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  nationality: PropTypes.string.isRequired,
+  idMeal: PropTypes.string.isRequired,
 };

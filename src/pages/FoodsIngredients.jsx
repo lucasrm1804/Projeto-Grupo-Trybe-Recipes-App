@@ -14,7 +14,7 @@ export default function FoodsIngredients() {
 
   return (
     <>
-      <Header label="Explorar Ingredientes" />
+      <Header label="Explore Ingredients" />
       <div>
         { ingredientsList && ingredientsList.slice(0, TWELVE).map((ingredient, index) => (
           <IngredientCards

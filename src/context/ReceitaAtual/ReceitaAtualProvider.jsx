@@ -5,7 +5,6 @@ import ReceitaAtualContext from './ReceitaAtualContext';
 function ReceitaAtualProvider({ children }) {
   const [receita, setReceita] = useState([]);
   const [label, setLabel] = useState('');
-  const [toggle, setToggle] = useState(false);
 
   return (
     <ReceitaAtualContext.Provider
@@ -14,8 +13,6 @@ function ReceitaAtualProvider({ children }) {
         setReceita,
         label,
         setLabel,
-        toggle,
-        setToggle,
       } }
     >
       {children}
