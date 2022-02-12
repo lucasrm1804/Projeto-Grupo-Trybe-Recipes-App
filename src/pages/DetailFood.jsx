@@ -9,7 +9,7 @@ import Loading from '../components/Loading';
 
 export default function DetailFoods() {
   const { id } = useParams();
-  const { receita, setReceita, label, setLabel } = useContext(receitaAtualContext);
+  const { receita, setReceita, setLabel } = useContext(receitaAtualContext);
 
   const {
     drinksRecommended,
@@ -25,6 +25,7 @@ export default function DetailFoods() {
     setLabel('foods');
     funcao();
     apiRecommendDrinks(setDrinksRecommended);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { strMeal, strCategory, strMealThumb, strInstructions, strYoutube } = receita;
@@ -38,18 +39,20 @@ export default function DetailFoods() {
   const quantity = quantityStr.map((value) => receita[value]);
 
   return (
-    <div>
+    <div className="h-auto">
       <COMP.DetailTop
         recipeTitle={ strMeal }
         receitaCategory={ strCategory }
         recipeImg={ strMealThumb }
+        label="foods"
+        receita={ receita }
       />
       <COMP.DetailBody
         ingredients={ ingredients }
         instructions={ strInstructions }
         quantity={ quantity }
         id={ id }
-        label={ label }
+        label="foods"
       />
       <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
         <h2>Video</h2>

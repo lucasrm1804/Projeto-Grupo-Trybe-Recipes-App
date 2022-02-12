@@ -56,12 +56,13 @@ export default function ButtonFavoriteFoods(props) {
   return (
     <button
       className="px-3 py-2"
-      data-testid="favorite-btn"
+      // data-testid="favorite-btn"
       type="button"
       onClick={ onClickFavorite }
       src={ favoriteIcon ? blackHeartIcon : whiteHeartIcon }
     >
       <img
+        data-testid="favorite-btn"
         src={ favoriteIcon ? blackHeartIcon : whiteHeartIcon }
         alt="Share Icon"
       />

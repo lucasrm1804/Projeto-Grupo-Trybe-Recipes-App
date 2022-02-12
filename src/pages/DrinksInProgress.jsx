@@ -9,6 +9,7 @@ import DrinksInProgressFooter
 from '../components/RecipesInProgress/DrinksInProgressFooter';
 import { saveRecipesInProgress } from '../services/SaveLocalStorage';
 import { getInProgress } from '../services/GetLocalStorage';
+import Loading from '../components/Loading';
 
 export default function DrinksInProgress() {
   const { receita, setReceita } = useContext(ReceitaAtualContext);
@@ -28,9 +29,14 @@ export default function DrinksInProgress() {
     }
   }, []);
 
+  const funcao = async () => {
+    await apiReceitaAtual(id, setReceita)
+      .catch(() => <Loading />);
+  };
+
   useEffect(() => {
-    apiReceitaAtual(id, setReceita);
-  }, [id, setReceita]);
+    funcao();
+  }, []);
 
   const {
     strDrink,
