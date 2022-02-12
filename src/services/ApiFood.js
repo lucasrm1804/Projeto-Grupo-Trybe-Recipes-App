@@ -111,6 +111,7 @@ export async function filterByArea(setArea, dropDownValue) {
 
   setArea(result.meals);
 }
+
 export async function apiReceitaAtual(id, setReceitaAtual) {
   const result = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then((res) => res.json());
