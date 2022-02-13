@@ -2,6 +2,7 @@ const ENDPOINT_DRINKS_INGREDIENT = 'https://www.thecocktaildb.com/api/json/v1/1/
 const ENDPOINT_DRINKS_NAME = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 const ENDPOINT_DRINKS_FIRST_LETTER = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=';
 const SORRY = 'Sorry, we haven\'t found any recipes for these filters.';
+const RANDOM_DRINK = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 export function requestDrinkIngredient(inputValue) {
   return `${ENDPOINT_DRINKS_INGREDIENT}${inputValue}`;
@@ -104,4 +105,11 @@ export async function filterByIngredientDrinks(setIngredientsList, ingredient) {
     .then((res) => res.json());
 
   setIngredientsList(result.drinks);
+}
+
+export async function randomDrinks(setRandomId) {
+  const result = await fetch(RANDOM_DRINK)
+    .then((res) => res.json());
+  const { drinks } = result;
+  setRandomId(drinks[0].idDrink);
 }

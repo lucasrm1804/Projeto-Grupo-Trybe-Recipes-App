@@ -11,6 +11,8 @@ import FilterButton from './FilterButtons/FilterButton';
 import DetailTop from './RecipeDetail/DetailTop';
 import DetailBody from './RecipeDetail/DetailBody';
 import DetailRecommend from './RecipeDetail/DetailRecommend';
+import DoneCards from './DoneCards/DoneCards';
+import DoneCardsButton from './DoneCards/DoneCardsButton';
 
 export {
   LoginButton,
@@ -26,4 +28,6 @@ export {
   DrinkCards,
   FilterButton,
   FilterButtonAll,
+  DoneCards,
+  DoneCardsButton,
 };

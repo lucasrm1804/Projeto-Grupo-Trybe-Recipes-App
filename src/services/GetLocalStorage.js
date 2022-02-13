@@ -7,3 +7,5 @@ export const getFavoritesFoods = () => JSON.parse(localStorage
 
 export const getFavoritesDrinks = () => JSON.parse(localStorage
   .getItem('favoriteRecipes'));
+
+export const getDoneRecipes = () => JSON.parse(localStorage.getItem('doneRecipes'));

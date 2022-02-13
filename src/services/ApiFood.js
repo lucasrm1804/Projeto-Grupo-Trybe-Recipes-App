@@ -2,6 +2,7 @@ const ENDPOINT_INGREDIENT = 'https://www.themealdb.com/api/json/v1/1/filter.php?
 const ENDPOINT_NAME = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 const ENDPOINT_FIRST_LETTER = 'https://www.themealdb.com/api/json/v1/1/search.php?f=';
 const SORRY = 'Sorry, we haven\'t found any recipes for these filters.';
+const RANDOM_FOOD = 'https://www.themealdb.com/api/json/v1/1/random.php';
 
 export function requestIngredient(inputValue) {
   return `${ENDPOINT_INGREDIENT}${inputValue}`;
@@ -124,4 +125,11 @@ export async function apiRecommendFoods(setMealsRecommended) {
     .then((res) => res.json());
   const { meals } = result;
   setMealsRecommended(meals);
+}
+
+export async function randomFoods(setRandomId) {
+  const result = await fetch(RANDOM_FOOD)
+    .then((res) => res.json());
+  const { meals } = result;
+  setRandomId(meals[0].idMeal);
 }
