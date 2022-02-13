@@ -56,6 +56,8 @@ function DoneCards(props) {
       >
         <DoneButtonShare
           testId={ `${i}-horizontal-share-btn` }
+          id={ id }
+          type={ type }
         />
 
       </div>

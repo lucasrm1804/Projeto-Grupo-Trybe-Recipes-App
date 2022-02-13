@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import shareIcon from '../../images/shareIcon.svg';
 
 export default function DoneButtonShare(props) {
+  const { testId, type, id } = props;
+
   const [copied, setCopied] = useState(false);
+
   const onClickCopied = () => {
     const url = window.location.href;
-    navigator.clipboard.writeText(url.replace('/in-progress', ''));
+    navigator.clipboard.writeText(url.replace('done-recipes', `${type}s/${id}`));
     setCopied(!copied);
   };
-
-  const { testId } = props;
 
   return (
     <div>
@@ -33,4 +34,6 @@ export default function DoneButtonShare(props) {
 
 DoneButtonShare.propTypes = {
   testId: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };

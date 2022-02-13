@@ -12,7 +12,7 @@ function DoneCardsButton(props) {
         text-blue-700 font-semibold m-2"
         type="button"
         data-testid={ testId }
-        onClick={ onClick(`${label}`) }
+        onClick={ () => onClick() }
 
       >
         {label}
