@@ -4,7 +4,7 @@ import { getDoneRecipes } from '../services/GetLocalStorage';
 
 export default function DoneRecipes() {
   const recipes = getDoneRecipes();
-  const [filter, setFilter] = useState('comida');
+  const [filter, setFilter] = useState('All');
   console.log(filter);
   return (
     <div>

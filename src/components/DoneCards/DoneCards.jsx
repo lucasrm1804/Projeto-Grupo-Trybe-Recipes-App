@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonShare from '../ButtonShare/ButtonShare';
+import { Link } from 'react-router-dom';
+import DoneButtonShare from '../ButtonShare/DoneButtonShare';
 import shareIcon from '../../images/shareIcon.svg';
 
 function DoneCards(props) {
   const {
-    // id,
-    // type,
+    id,
+    type,
     nationality,
     category,
     alcoholicOrNot,
@@ -19,28 +20,29 @@ function DoneCards(props) {
 
   return (
     <div>
+      <Link to={ `/${type}s/${id}` }>
+        <img
+          className="object-contain h-48 w-full"
+          src={ image }
+          alt={ name }
+          data-testid={ `${i}-horizontal-image` }
+        />
 
-      <img
-        className="object-contain h-48 w-full"
-        src={ image }
-        alt={ name }
-        data-testid={ `${i}-horizontal-image` }
-      />
+        <span
+          data-testid={ `${i}-horizontal-top-text` }
+        >
+          { `${nationality} - ${category}` }
+          { alcoholicOrNot === 'Alcoholic' || alcoholicOrNot === 'Non alcoholic'
+            ? <span>{ alcoholicOrNot }</span>
+            : null }
+        </span>
 
-      <span
-        data-testid={ `${i}-horizontal-top-text` }
-      >
-        { `${nationality} - ${category}` }
-        { alcoholicOrNot === 'Alcoholic' || alcoholicOrNot === 'Non alcoholic'
-          ? <span>{ alcoholicOrNot }</span>
-          : null }
-      </span>
-
-      <span
-        data-testid={ `${i}-horizontal-name` }
-      >
-        { name }
-      </span>
+        <span
+          data-testid={ `${i}-horizontal-name` }
+        >
+          { name }
+        </span>
+      </Link>
 
       <span
         data-testid={ `${i}-horizontal-done-date` }
@@ -49,11 +51,12 @@ function DoneCards(props) {
       </span>
 
       <div
-        data-testid={ `${i}-horizontal-share-btn` }
         src={ shareIcon }
         alt="Share Icon"
       >
-        <ButtonShare />
+        <DoneButtonShare
+          testId={ `${i}-horizontal-share-btn` }
+        />
 
       </div>
 
@@ -79,8 +82,8 @@ function DoneCards(props) {
 }
 
 DoneCards.propTypes = {
-  // id: PropTypes.number.isRequired,
-  // type: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
   nationality: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   alcoholicOrNot: PropTypes.string.isRequired,
